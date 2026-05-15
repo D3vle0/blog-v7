@@ -12,16 +12,16 @@ function CompactPostCard({ post }: { post: Post }) {
 
   return (
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
-      <Card className="flex flex-col h-full hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden p-4 group">
-        <div className="flex justify-between items-start mb-2">
+      <Card className="flex flex-col h-full hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden p-3 group">
+        <div className="flex justify-between items-start mb-1">
           <span className="text-sm font-medium text-pink-500">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
         </div>
-        <h3 className="font-bold text-lg line-clamp-2 mb-4 group-hover:text-primary transition-colors">
+        <h3 className="font-bold text-[1.05rem] leading-snug line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
           {post.metadata.title}
         </h3>
-        <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto">
+        <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-1">
           <div className="flex items-center">
             <CalendarIcon className="mr-1 h-3 w-3" />
             {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
@@ -48,7 +48,7 @@ function LargePostCard({ post }: { post: Post }) {
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
       <Card className="h-full flex flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group relative">
         {post.metadata.coverImage ? (
-          <div className="relative w-full aspect-video overflow-hidden bg-white dark:bg-zinc-900 border-b">
+          <div className="relative w-full aspect-[2/1] overflow-hidden bg-white dark:bg-zinc-900 border-b">
             <img
               src={post.metadata.coverImage}
               alt={post.metadata.title}
@@ -56,18 +56,18 @@ function LargePostCard({ post }: { post: Post }) {
             />
           </div>
         ) : (
-          <div className="relative w-full aspect-video overflow-hidden bg-muted border-b flex items-center justify-center">
+          <div className="relative w-full aspect-[2/1] overflow-hidden bg-muted border-b flex items-center justify-center">
             <span className="text-muted-foreground text-xl font-medium">Devleo's Blog</span>
           </div>
         )}
-        <div className="p-6 flex flex-col flex-1">
-          <span className="text-sm font-medium text-pink-500 mb-2">
+        <div className="p-5 flex flex-col flex-1">
+          <span className="text-sm font-medium text-pink-500 mb-1.5">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
-          <h3 className="font-bold text-2xl line-clamp-2 mb-4 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-2xl line-clamp-2 mb-2.5 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
-          <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-4 border-t border-border/30">
+          <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-3 border-t border-border/30">
             <div className="flex items-center">
               <CalendarIcon className="mr-1.5 h-4 w-4" />
               {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
@@ -125,7 +125,7 @@ export default async function Home() {
               <h2 className="text-2xl font-bold tracking-tight mb-4 flex items-center">
                 추천 게시물 🔥
               </h2>
-              <div className="flex flex-col gap-4 flex-1">
+              <div className="flex flex-col gap-3 flex-1">
                 {recommendedPosts.map((post) => (
                   <CompactPostCard key={post.metadata.slug} post={post} />
                 ))}

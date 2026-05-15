@@ -17,7 +17,7 @@ function PostCard({ post }: { post: Post }) {
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
       <Card className="h-full flex flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group">
         {post.metadata.coverImage ? (
-          <div className="relative w-full aspect-video overflow-hidden bg-white dark:bg-zinc-900 border-b">
+          <div className="relative w-full h-40 overflow-hidden bg-white dark:bg-zinc-900 border-b">
             <img
               src={post.metadata.coverImage}
               alt={post.metadata.title}
@@ -25,18 +25,18 @@ function PostCard({ post }: { post: Post }) {
             />
           </div>
         ) : (
-          <div className="relative w-full aspect-video overflow-hidden bg-muted border-b flex items-center justify-center">
+          <div className="relative w-full h-40 overflow-hidden bg-muted border-b flex items-center justify-center">
             <span className="text-muted-foreground text-xl font-medium">Devleo's Blog</span>
           </div>
         )}
-        <div className="p-5 flex flex-col flex-1">
-          <span className="text-sm font-medium text-pink-500 mb-2">
+        <div className="p-4 flex flex-col flex-1">
+          <span className="text-sm font-medium text-pink-500 mb-1.5">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
-          <h3 className="font-bold text-lg leading-tight line-clamp-2 mb-4 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-[1.05rem] leading-tight line-clamp-2 mb-2 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
-          <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-4 border-t border-border/30">
+          <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-3 border-t border-border/30">
             <div className="flex items-center">
               <CalendarIcon className="mr-1.5 h-3 w-3" />
               {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
