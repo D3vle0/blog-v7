@@ -1,15 +1,12 @@
 import { getPostBySlug, getPostSlugs } from "@/lib/posts";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { CalendarIcon, ArrowLeft, Clock } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
+
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
@@ -94,38 +91,8 @@ export default async function BlogPostPage({
 
       <div className="prose prose-zinc dark:prose-invert max-w-none w-full
                       prose-headings:font-heading prose-headings:font-bold
-                      prose-a:text-primary prose-a:underline-offset-4 hover:prose-a:text-primary/80
-                      prose-img:rounded-xl prose-img:border prose-img:shadow-sm">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-          components={{
-            code(props) {
-              const { children, className, node, ...rest } = props;
-              const match = /language-(\w+)/.exec(className || "");
-              return match ? (
-                <SyntaxHighlighter
-                  {...(rest as any)}
-                  PreTag="div"
-                  children={String(children).replace(/\n$/, "")}
-                  language={match[1]}
-                  style={vscDarkPlus}
-                  showLineNumbers={true}
-                  customStyle={{
-                    margin: 0,
-                    borderRadius: "0.5rem",
-                  }}
-                />
-              ) : (
-                <code {...rest} className={className}>
-                  {children}
-                </code>
-              );
-            },
-          }}
-        >
-          {post.content}
-        </ReactMarkdown>
+                      prose-a:text-primary prose-a:underline-offset-4 hover:prose-a:text-primary/80">
+        <MarkdownRenderer content={post.content} />
       </div>
     </article>
   );
