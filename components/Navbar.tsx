@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
+import { ScrollProgressBar } from "./ScrollProgressBar";
 
 export function Navbar() {
   return (
@@ -21,6 +22,7 @@ export function Navbar() {
           </nav>
         </div>
       </div>
+      <ScrollProgressBar />
     </header>
   );
 }
