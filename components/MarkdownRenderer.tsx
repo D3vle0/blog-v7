@@ -136,7 +136,7 @@ function CodeBlockWithCopy({ children, language, ...props }: any) {
 
 function CodeBlock({ node, className, children, ...props }: any) {
   const match = /language-(\w+)/.exec(className || "");
-  
+
   if (match) {
     return (
       <CodeBlockWithCopy language={match[1]} {...props}>
@@ -183,12 +183,24 @@ export function MarkdownRenderer({ content }: { content: string }) {
         blockquote: CustomBlockquote,
         pre: PreBlock,
         code: CodeBlock,
+        p({ children }: any) {
+          // Check if children contain an image
+          const hasImage = React.Children.toArray(children).some(
+            (child) => React.isValidElement(child) && (child as any).type === 'img'
+          );
+
+          if (hasImage) {
+            return <div className="my-6">{children}</div>;
+          }
+
+          return <p>{children}</p>;
+        },
         img(props) {
           return (
             <Zoom>
               <img
                 {...props}
-                className="rounded-xl border border-border shadow-sm my-6 max-h-[600px] object-contain mx-auto"
+                className="rounded-xl border border-border shadow-sm max-h-[600px] object-contain mx-auto"
                 loading="lazy"
               />
             </Zoom>
