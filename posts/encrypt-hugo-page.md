@@ -21,7 +21,7 @@ Hugo와 같은 정적 사이트 생성기를 사용하면 빠르고 간단하게
 
 ## 프로젝트 구조
 
-```
+```text
 hugo-protector/
 ├── bin/
 │   └── hugo-protector.js      # CLI 진입점
@@ -105,7 +105,7 @@ const encryptText = (plaintext, password, options = {}) => {
 터미널에서 암호화를 수행할 수 있는 CLI를 제공한다.
 
 #### 주요 옵션
-```
+```text
 -i, --input <file>          파일에서 평문 읽기
 -t, --text <string>         문자열 직접 입력
 -p, --password <value>      비밀번호 직접 전달 (테스트용)
