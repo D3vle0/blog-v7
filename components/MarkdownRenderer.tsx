@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { Check, Copy, AlertTriangle, Info, Lightbulb, Flame } from "lucide-react";
@@ -98,7 +98,7 @@ function CodeBlock({ node, inline, className, children, ...props }: any) {
 
   if (!inline && match) {
     return (
-      <div className="relative group rounded-lg overflow-hidden my-6">
+      <div className="relative group rounded-lg overflow-hidden my-6 bg-[#282c34]">
         <div className="absolute right-3 top-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             onClick={handleCopy}
@@ -113,11 +113,13 @@ function CodeBlock({ node, inline, className, children, ...props }: any) {
           PreTag="div"
           children={String(children).replace(/\n$/, "")}
           language={match[1]}
-          style={vscDarkPlus}
+          style={oneDark}
           showLineNumbers={true}
           customStyle={{
             margin: 0,
             borderRadius: "0.5rem",
+            background: "transparent",
+            padding: "1.5rem",
           }}
         />
       </div>
@@ -138,6 +140,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
       rehypePlugins={[rehypeRaw]}
       components={{
         blockquote: CustomBlockquote,
+        pre: ({ children }) => <>{children}</>,
         code: CodeBlock,
         img(props) {
           return (
