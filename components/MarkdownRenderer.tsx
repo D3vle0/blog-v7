@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Zoom from "react-medium-image-zoom";
@@ -118,6 +119,8 @@ function CodeBlockWithCopy({ children, language, ...props }: any) {
           borderRadius: "0.5rem",
           background: "transparent",
           padding: "1.5rem",
+          fontSize: "0.85rem",
+          lineHeight: "1.5",
         }}
       />
     </div>
@@ -168,7 +171,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
+      rehypePlugins={[rehypeRaw, rehypeSlug]}
       components={{
         blockquote: CustomBlockquote,
         pre: PreBlock,
