@@ -8,10 +8,13 @@ export function Navbar() {
       <div className="container flex h-14 max-w-screen-2xl items-center mx-auto px-4 sm:px-8">
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold sm:inline-block">Devleo's Blog</span>
+            <img src="/icon.jpg" alt="Logo" className="w-8 h-8 rounded-full object-cover" />
+            <span className="font-bold sm:inline-block text-xl">Devleo's Blog</span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="flex items-center space-x-6 text-base font-medium">
             <Link href="/" className="transition-colors hover:text-foreground/80 text-foreground/60">Home</Link>
+            <Link href="https://github.com/D3vle0" className="transition-colors hover:text-foreground/80 text-foreground/60">Github</Link>
+            <Link href="https://huggingface.co/d3vle0" className="transition-colors hover:text-foreground/80 text-foreground/60">Huggingface</Link>
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
