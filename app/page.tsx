@@ -46,13 +46,13 @@ function LargePostCard({ post }: { post: Post }) {
 
   return (
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
-      <Card className="h-full flex flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group relative">
+      <Card className="h-full flex flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group relative p-0 gap-0">
         {post.metadata.coverImage ? (
           <div className="relative w-full aspect-[2.5/1] overflow-hidden bg-white dark:bg-zinc-900 border-b">
             <img
               src={post.metadata.coverImage}
               alt={post.metadata.title}
-              className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-105"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         ) : (
