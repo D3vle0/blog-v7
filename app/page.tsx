@@ -12,27 +12,42 @@ function CompactPostCard({ post }: { post: Post }) {
 
   return (
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
-      <Card className="flex flex-col h-full hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden p-3 py-2 group">
-        <div className="flex justify-between items-start mb-1">
-          <span className="text-sm font-medium text-pink-500">
-            {post.metadata.categories?.[0] || 'Uncategorized'}
-          </span>
-        </div>
-        <h3 className="font-bold text-lg leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
-          {post.metadata.title}
-        </h3>
-        <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-1">
-          <div className="flex items-center">
-            <CalendarIcon className="mr-1 h-3.5 w-3.5" />
-            {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+      <Card className="flex flex-row h-full hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden p-0 gap-0 group">
+        {post.metadata.coverImage ? (
+          <div className="relative w-1/3 shrink-0 overflow-hidden bg-white dark:bg-zinc-900 border-r">
+            <img
+              src={post.metadata.coverImage}
+              alt={post.metadata.title}
+              className="object-cover absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
-          <div className="flex items-center">
-            <Clock className="mr-1 h-3.5 w-3.5" />
-            {readingTime}분
+        ) : (
+          <div className="relative w-1/3 shrink-0 overflow-hidden bg-muted border-r flex items-center justify-center">
+            <span className="text-muted-foreground text-xs font-medium absolute inset-0 flex items-center justify-center">Devleo's Blog</span>
+          </div>
+        )}
+        <div className="p-3 py-2 flex flex-col flex-1">
+          <div className="flex justify-between items-start mb-1">
+            <span className="text-sm font-medium text-pink-500">
+              {post.metadata.categories?.[0] || 'Uncategorized'}
+            </span>
+          </div>
+          <h3 className="font-bold text-lg leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
+            {post.metadata.title}
+          </h3>
+          <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-1">
+            <div className="flex items-center">
+              <CalendarIcon className="mr-1 h-3.5 w-3.5" />
+              {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </div>
+            <div className="flex items-center">
+              <Clock className="mr-1 h-3.5 w-3.5" />
+              {readingTime}분
+            </div>
           </div>
         </div>
       </Card>
@@ -97,7 +112,7 @@ export default async function Home() {
     <div className="flex flex-col gap-12">
       <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-16 animate-in fade-in slide-in-from-bottom-4 duration-1000">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center mx-auto">
-          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+          <h1 className="font-heading text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
             Devleo's Blog
           </h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
