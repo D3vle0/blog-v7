@@ -104,13 +104,13 @@ function LargePostCard({ post }: { post: Post }) {
 
 export default async function Home() {
   const posts = getAllPosts();
-  
+
   const recentPost = posts[0];
   const recommendedPosts = posts.slice(1, 5);
 
   return (
     <div className="flex flex-col gap-12">
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-16 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+      <section className="space-y-10 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-16 animate-in fade-in slide-in-from-bottom-4 duration-1000">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center mx-auto">
           <h1 className="font-heading text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
             Devleo's Blog
@@ -119,6 +119,21 @@ export default async function Home() {
             👋 정보보안, AI, 블록체인, 프로그래밍을 공부하는 학생입니다. <br />
             현재 U.S. 8th Army에서 KATUSA로 군복무 중입니다.
           </p>
+        </div>
+
+        <div className="container flex flex-col md:flex-row justify-center items-center gap-6 mx-auto px-4">
+          <img
+            alt="Spotify Recently Played"
+            loading="lazy"
+            src="https://spotify-recently-played-readme.vercel.app/api?user=85o05xl09h5de8ngv9im0txhx&count=3"
+            className="h-auto md:h-[210px] w-full md:w-auto object-contain rounded-lg shadow-sm"
+          />
+          <img
+            alt="ETS Counter"
+            loading="lazy"
+            src="https://ets-readme-counter.vercel.app/view?startdate=20250304&branch=army&lang=ko"
+            className="h-auto md:h-[210px] w-full md:w-auto object-contain rounded-lg shadow-sm"
+          />
         </div>
       </section>
 

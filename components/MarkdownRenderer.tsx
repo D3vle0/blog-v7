@@ -60,7 +60,12 @@ function CustomBlockquote({ children, ...props }: any) {
             }
           }
 
-          const newFirstElement = <p key={firstElement.key || "callout-p"} className={(firstElement.props && firstElement.props.className) || ""}>{newPChildren}</p>;
+          const hasImage = newPChildren.some(
+            (child) => React.isValidElement(child) && (child as any).type === 'img'
+          );
+
+          const ElementType = hasImage ? "div" : "p";
+          const newFirstElement = <ElementType key={firstElement.key || "callout-p"} className={(firstElement.props && firstElement.props.className) || ""}>{newPChildren}</ElementType>;
           const newChildren = [...childrenArray];
           newChildren[firstElementIndex] = newFirstElement;
 
