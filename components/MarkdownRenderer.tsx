@@ -20,11 +20,11 @@ const ALERT_TYPES = {
 
 function CustomBlockquote({ children, ...props }: any) {
   const childrenArray = React.Children.toArray(children);
-  
+
   if (childrenArray.length > 0) {
     // Usually the first child is a newline string followed by a <p> tag, so let's find the first element
     const firstElementIndex = childrenArray.findIndex(child => React.isValidElement(child) && (child as any).type === 'p');
-    
+
     if (firstElementIndex !== -1) {
       const firstElement = childrenArray[firstElementIndex] as any;
       const pChildren = React.Children.toArray(firstElement.props.children);
@@ -32,7 +32,7 @@ function CustomBlockquote({ children, ...props }: any) {
 
       if (typeof firstPChild === "string") {
         const match = firstPChild.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*([^\n]*)/i);
-        
+
         if (match) {
           const alertType = match[1].toUpperCase() as keyof typeof ALERT_TYPES;
           const title = match[2].trim() || alertType;
@@ -55,7 +55,7 @@ function CustomBlockquote({ children, ...props }: any) {
           // Extra safety: aggressively remove any leftover exact match in the first text node
           if (newPChildren.length > 0 && typeof newPChildren[0] === "string") {
             if (newPChildren[0].includes(match[0])) {
-               newPChildren[0] = newPChildren[0].replace(match[0], "").trimStart();
+              newPChildren[0] = newPChildren[0].replace(match[0], "").trimStart();
             }
           }
 
@@ -86,51 +86,82 @@ function CustomBlockquote({ children, ...props }: any) {
   );
 }
 
-function CodeBlock({ node, inline, className, children, ...props }: any) {
-  const match = /language-(\w+)/.exec(className || "");
+function CodeBlockWithCopy({ children, language, ...props }: any) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(String(children).replace(/\n$/, ""));
+    navigator.clipboard.writeText(String(children));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  if (!inline) {
-    return (
-      <div className="relative group rounded-lg overflow-hidden my-6 bg-[#282c34] not-prose">
-        <div className="absolute right-3 top-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button
-            onClick={handleCopy}
-            className="p-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm border border-white/10 transition-colors"
-            title="Copy code"
-          >
-            {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-          </button>
-        </div>
-        <SyntaxHighlighter
-          {...props}
-          PreTag="div"
-          children={String(children).replace(/\n$/, "")}
-          language={match ? match[1] : "text"}
-          style={oneDark}
-          showLineNumbers={true}
-          customStyle={{
-            margin: 0,
-            borderRadius: "0.5rem",
-            background: "transparent",
-            padding: "1.5rem",
-          }}
-        />
+  return (
+    <div className="relative group rounded-lg overflow-hidden my-6 bg-[#282c34] not-prose">
+      <div className="absolute right-3 top-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+        <button
+          onClick={handleCopy}
+          className="p-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm border border-white/10 transition-colors"
+          title="Copy code"
+        >
+          {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+        </button>
       </div>
+      <SyntaxHighlighter
+        {...props}
+        PreTag="div"
+        children={String(children)}
+        language={language}
+        style={oneDark}
+        showLineNumbers={true}
+        customStyle={{
+          margin: 0,
+          borderRadius: "0.5rem",
+          background: "transparent",
+          padding: "1.5rem",
+        }}
+      />
+    </div>
+  );
+}
+
+function CodeBlock({ node, className, children, ...props }: any) {
+  const match = /language-(\w+)/.exec(className || "");
+  
+  if (match) {
+    return (
+      <CodeBlockWithCopy language={match[1]} {...props}>
+        {String(children).replace(/\n$/, "")}
+      </CodeBlockWithCopy>
     );
   }
 
+  // Inline code - return original style
   return (
-    <code className="bg-muted px-1.5 py-0.5 rounded-sm text-sm font-mono" {...props}>
+    <code className={className} {...props}>
       {children}
     </code>
   );
+}
+
+function PreBlock({ children }: any) {
+  if (React.isValidElement(children)) {
+    // If it's a code block with a language, CodeBlock returned a CodeBlockWithCopy element
+    if ((children as any).type === CodeBlockWithCopy) {
+      return <>{children}</>;
+    }
+
+    // If it's a code block without a language, CodeBlock returned a standard <code> element
+    if ((children as any).type === 'code') {
+      const codeProps = (children as any).props;
+      return (
+        <CodeBlockWithCopy language="text">
+          {String(codeProps.children).replace(/\n$/, "")}
+        </CodeBlockWithCopy>
+      );
+    }
+  }
+
+  return <pre className="not-prose">{children}</pre>;
 }
 
 export function MarkdownRenderer({ content }: { content: string }) {
@@ -140,7 +171,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
       rehypePlugins={[rehypeRaw]}
       components={{
         blockquote: CustomBlockquote,
-        pre: ({ children }) => <>{children}</>,
+        pre: PreBlock,
         code: CodeBlock,
         img(props) {
           return (
