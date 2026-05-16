@@ -15,18 +15,18 @@ function PostCard({ post }: { post: Post }) {
 
   return (
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
-      <Card className="h-full flex flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group p-0 gap-0">
+      <Card className="h-full flex flex-row sm:flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group p-0 gap-0">
         {post.metadata.coverImage ? (
-          <div className="relative w-full h-36 overflow-hidden bg-white dark:bg-zinc-900 border-b">
+          <div className="relative w-1/3 sm:w-full shrink-0 sm:h-52 overflow-hidden bg-white dark:bg-zinc-900 border-r sm:border-r-0 sm:border-b">
             <img
               src={post.metadata.coverImage}
               alt={post.metadata.title}
-              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+              className="object-cover absolute inset-0 sm:static w-full h-full transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         ) : (
-          <div className="relative w-full h-36 overflow-hidden bg-muted border-b flex items-center justify-center">
-            <span className="text-muted-foreground text-xl font-medium">Devleo's Blog</span>
+          <div className="relative w-1/3 sm:w-full shrink-0 sm:h-52 overflow-hidden bg-muted border-r sm:border-r-0 sm:border-b flex items-center justify-center">
+            <span className="text-muted-foreground text-sm sm:text-xl font-medium absolute inset-0 sm:static flex items-center justify-center">Devleo's Blog</span>
           </div>
         )}
         <div className="p-3.5 flex flex-col flex-1">
