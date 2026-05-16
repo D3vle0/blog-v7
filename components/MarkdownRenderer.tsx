@@ -135,9 +135,9 @@ function CodeBlock({ node, className, children, ...props }: any) {
     );
   }
 
-  // Inline code - stylized to match block theme
+  // Inline code - stylized to match theme and support light/dark modes
   return (
-    <code className="bg-[#282c34] text-[#abb2bf] px-1.5 py-0.5 rounded-md font-mono text-[0.9em] border border-white/5" {...props}>
+    <code className="bg-zinc-100 text-zinc-900 dark:bg-[#282c34] dark:text-[#abb2bf] px-1.5 py-0.5 rounded-md font-mono text-[0.9em] border border-black/5 dark:border-white/5" {...props}>
       {children}
     </code>
   );

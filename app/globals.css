@@ -119,8 +119,15 @@
 }
 
 @layer base {
+  /* Aggressively hide backticks for all code tags */
+  code::before,
+  code::after {
+    content: "" !important;
+    display: none !important;
+  }
   .prose code::before,
   .prose code::after {
+    content: "" !important;
     display: none !important;
   }
   * {
