@@ -8,7 +8,83 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, AlertTriangle, Info, Lightbulb, Flame } from "lucide-react";
+
+const ALERT_TYPES = {
+  NOTE: { icon: Info, color: "text-blue-500", bg: "bg-blue-500/10", border: "border-blue-500" },
+  TIP: { icon: Lightbulb, color: "text-green-500", bg: "bg-green-500/10", border: "border-green-500" },
+  IMPORTANT: { icon: Flame, color: "text-purple-500", bg: "bg-purple-500/10", border: "border-purple-500" },
+  WARNING: { icon: AlertTriangle, color: "text-orange-500", bg: "bg-orange-500/10", border: "border-orange-500" },
+  CAUTION: { icon: AlertTriangle, color: "text-red-500", bg: "bg-red-500/10", border: "border-red-500" },
+};
+
+function CustomBlockquote({ children, ...props }: any) {
+  const childrenArray = React.Children.toArray(children);
+  
+  if (childrenArray.length > 0) {
+    // Usually the first child is a newline string followed by a <p> tag, so let's find the first element
+    const firstElementIndex = childrenArray.findIndex(child => React.isValidElement(child) && (child as any).type === 'p');
+    
+    if (firstElementIndex !== -1) {
+      const firstElement = childrenArray[firstElementIndex] as any;
+      const pChildren = React.Children.toArray(firstElement.props.children);
+      const firstPChild = pChildren[0];
+
+      if (typeof firstPChild === "string") {
+        const match = firstPChild.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*([^\n]*)/i);
+        
+        if (match) {
+          const alertType = match[1].toUpperCase() as keyof typeof ALERT_TYPES;
+          const title = match[2].trim() || alertType;
+          const config = ALERT_TYPES[alertType];
+          const Icon = config.icon;
+
+          const newPChildren = pChildren.map((child, index) => {
+            if (index === 0 && typeof child === "string") {
+              let str = child.slice(match[0].length);
+              str = str.replace(/^\s*(?:\r\n|\r|\n)\s*/, "");
+              return str;
+            }
+            return child;
+          }).filter((child, index) => {
+            if (index === 0 && typeof child === "string" && child.trim() === "") return false;
+            if (index === 0 && React.isValidElement(child) && (child as any).type === "br") return false;
+            return true;
+          });
+
+          // Extra safety: aggressively remove any leftover exact match in the first text node
+          if (newPChildren.length > 0 && typeof newPChildren[0] === "string") {
+            if (newPChildren[0].includes(match[0])) {
+               newPChildren[0] = newPChildren[0].replace(match[0], "").trimStart();
+            }
+          }
+
+          const newFirstElement = <p key={firstElement.key || "callout-p"} className={(firstElement.props && firstElement.props.className) || ""}>{newPChildren}</p>;
+          const newChildren = [...childrenArray];
+          newChildren[firstElementIndex] = newFirstElement;
+
+          return (
+            <div className={`my-6 border-l-4 rounded-r-lg px-4 py-4 ${config.bg} ${config.border}`}>
+              <div className={`flex items-center gap-2 mb-2 text-[1.05rem] font-bold ${config.color}`}>
+                <Icon className="w-5 h-5" />
+                <span>{title}</span>
+              </div>
+              <div className="text-foreground/90 prose-p:my-1 prose-p:leading-relaxed text-[0.95rem]">
+                {newChildren}
+              </div>
+            </div>
+          );
+        }
+      }
+    }
+  }
+
+  return (
+    <blockquote className="border-l-4 border-muted-foreground/30 pl-4 italic text-muted-foreground my-6" {...props}>
+      {children}
+    </blockquote>
+  );
+}
 
 function CodeBlock({ node, inline, className, children, ...props }: any) {
   const match = /language-(\w+)/.exec(className || "");
@@ -61,6 +137,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
       components={{
+        blockquote: CustomBlockquote,
         code: CodeBlock,
         img(props) {
           return (
