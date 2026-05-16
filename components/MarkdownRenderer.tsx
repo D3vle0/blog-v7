@@ -96,9 +96,9 @@ function CodeBlock({ node, inline, className, children, ...props }: any) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  if (!inline && match) {
+  if (!inline) {
     return (
-      <div className="relative group rounded-lg overflow-hidden my-6 bg-[#282c34]">
+      <div className="relative group rounded-lg overflow-hidden my-6 bg-[#282c34] not-prose">
         <div className="absolute right-3 top-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             onClick={handleCopy}
@@ -112,7 +112,7 @@ function CodeBlock({ node, inline, className, children, ...props }: any) {
           {...props}
           PreTag="div"
           children={String(children).replace(/\n$/, "")}
-          language={match[1]}
+          language={match ? match[1] : "text"}
           style={oneDark}
           showLineNumbers={true}
           customStyle={{
@@ -127,7 +127,7 @@ function CodeBlock({ node, inline, className, children, ...props }: any) {
   }
 
   return (
-    <code className={className} {...props}>
+    <code className="bg-muted px-1.5 py-0.5 rounded-sm text-sm font-mono" {...props}>
       {children}
     </code>
   );
