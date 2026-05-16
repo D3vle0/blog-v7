@@ -12,13 +12,13 @@ function CompactPostCard({ post }: { post: Post }) {
 
   return (
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
-      <Card className="flex flex-col h-full hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden p-3 group">
+      <Card className="flex flex-col h-full hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden p-2.5 group">
         <div className="flex justify-between items-start mb-1">
           <span className="text-sm font-medium text-pink-500">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
         </div>
-        <h3 className="font-bold text-[1.05rem] leading-snug line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
+        <h3 className="font-bold text-[1rem] leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
           {post.metadata.title}
         </h3>
         <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-1">
@@ -48,7 +48,7 @@ function LargePostCard({ post }: { post: Post }) {
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
       <Card className="h-full flex flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group relative">
         {post.metadata.coverImage ? (
-          <div className="relative w-full aspect-[2/1] overflow-hidden bg-white dark:bg-zinc-900 border-b">
+          <div className="relative w-full aspect-[2.5/1] overflow-hidden bg-white dark:bg-zinc-900 border-b">
             <img
               src={post.metadata.coverImage}
               alt={post.metadata.title}
@@ -56,15 +56,15 @@ function LargePostCard({ post }: { post: Post }) {
             />
           </div>
         ) : (
-          <div className="relative w-full aspect-[2/1] overflow-hidden bg-muted border-b flex items-center justify-center">
+          <div className="relative w-full aspect-[2.5/1] overflow-hidden bg-muted border-b flex items-center justify-center">
             <span className="text-muted-foreground text-xl font-medium">Devleo's Blog</span>
           </div>
         )}
-        <div className="p-5 flex flex-col flex-1">
+        <div className="p-4 flex flex-col flex-1">
           <span className="text-sm font-medium text-pink-500 mb-1.5">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
-          <h3 className="font-bold text-2xl line-clamp-2 mb-2.5 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-xl lg:text-2xl line-clamp-2 mb-2 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
           <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-3 border-t border-border/30">
