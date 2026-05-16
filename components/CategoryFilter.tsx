@@ -33,7 +33,7 @@ function PostCard({ post }: { post: Post }) {
           <span className="text-sm font-medium text-pink-500 mb-1.5">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
-          <h3 className="font-bold text-[1rem] leading-tight line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-lg leading-tight line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
           <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-3 border-t border-border/30">
