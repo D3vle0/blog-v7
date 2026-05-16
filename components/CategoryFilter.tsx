@@ -36,9 +36,9 @@ function PostCard({ post }: { post: Post }) {
           <h3 className="font-bold text-lg leading-tight line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
-          <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-3 border-t border-border/30">
+          <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-3 border-t border-border/30">
             <div className="flex items-center">
-              <CalendarIcon className="mr-1.5 h-3 w-3" />
+              <CalendarIcon className="mr-1.5 h-3.5 w-3.5" />
               {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
                 year: "numeric",
                 month: "long",
@@ -46,7 +46,7 @@ function PostCard({ post }: { post: Post }) {
               })}
             </div>
             <div className="flex items-center">
-              <Clock className="mr-1.5 h-3 w-3" />
+              <Clock className="mr-1.5 h-3.5 w-3.5" />
               {readingTime}분
             </div>
           </div>

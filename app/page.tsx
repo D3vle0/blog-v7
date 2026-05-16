@@ -13,7 +13,7 @@ function CompactPostCard({ post }: { post: Post }) {
   return (
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
       <Card className="flex flex-col h-full hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden p-3 py-2 group">
-        <div className="flex justify-between items-start mb-0.5">
+        <div className="flex justify-between items-start mb-1">
           <span className="text-sm font-medium text-pink-500">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
@@ -21,9 +21,9 @@ function CompactPostCard({ post }: { post: Post }) {
         <h3 className="font-bold text-lg leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
           {post.metadata.title}
         </h3>
-        <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-1">
+        <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-1">
           <div className="flex items-center">
-            <CalendarIcon className="mr-1 h-3 w-3" />
+            <CalendarIcon className="mr-1 h-3.5 w-3.5" />
             {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
               year: "numeric",
               month: "long",
@@ -31,7 +31,7 @@ function CompactPostCard({ post }: { post: Post }) {
             })}
           </div>
           <div className="flex items-center">
-            <Clock className="mr-1 h-3 w-3" />
+            <Clock className="mr-1 h-3.5 w-3.5" />
             {readingTime}분
           </div>
         </div>
@@ -48,7 +48,7 @@ function LargePostCard({ post }: { post: Post }) {
     <Link href={`/blog/${post.metadata.slug}`} className="block h-full">
       <Card className="h-full flex flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group relative p-0 gap-0">
         {post.metadata.coverImage ? (
-          <div className="relative w-full aspect-[2.5/1] overflow-hidden bg-white dark:bg-zinc-900 border-b">
+          <div className="relative w-full aspect-[2/1] overflow-hidden bg-white dark:bg-zinc-900 border-b">
             <img
               src={post.metadata.coverImage}
               alt={post.metadata.title}
@@ -56,15 +56,15 @@ function LargePostCard({ post }: { post: Post }) {
             />
           </div>
         ) : (
-          <div className="relative w-full aspect-[2.5/1] overflow-hidden bg-muted border-b flex items-center justify-center">
+          <div className="relative w-full aspect-[2/1] overflow-hidden bg-muted border-b flex items-center justify-center">
             <span className="text-muted-foreground text-xl font-medium">Devleo's Blog</span>
           </div>
         )}
-        <div className="p-3.5 flex flex-col flex-1">
+        <div className="p-3 flex flex-col flex-1">
           <span className="text-sm font-medium text-pink-500 mb-1">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
-          <h3 className="font-bold text-2xl md:text-3xl line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-2xl line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
           <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-2 border-t border-border/30">
@@ -125,7 +125,7 @@ export default async function Home() {
               <h2 className="text-2xl font-bold tracking-tight mb-4 flex items-center">
                 추천 게시물 🔥
               </h2>
-              <div className="flex flex-col gap-2.5 flex-1">
+              <div className="flex flex-col gap-2 flex-1">
                 {recommendedPosts.map((post) => (
                   <CompactPostCard key={post.metadata.slug} post={post} />
                 ))}
