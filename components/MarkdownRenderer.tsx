@@ -121,6 +121,13 @@ function CodeBlockWithCopy({ children, language, ...props }: any) {
           padding: "1.5rem",
           fontSize: "0.85rem",
           lineHeight: "1.5",
+          textShadow: "none",
+        }}
+        codeTagProps={{
+          style: {
+            textShadow: "none",
+            fontFamily: "inherit",
+          },
         }}
       />
     </div>
