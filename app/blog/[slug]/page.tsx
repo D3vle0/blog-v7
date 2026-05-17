@@ -96,7 +96,7 @@ export default async function BlogPostPage({
         <div className="relative">
           <div className="prose prose-zinc dark:prose-invert max-w-none w-full
                           prose-headings:font-heading prose-headings:font-bold
-                          prose-a:text-primary prose-a:underline-offset-4 hover:prose-a:text-primary/80">
+                          prose-a:text-primary prose-a:underline-offset-4 prose-a:hover:text-primary/80">
             <MarkdownRenderer content={post.content} />
           </div>
 
