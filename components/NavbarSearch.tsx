@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Post } from "@/lib/posts";
 import { Search, Loader2, X, Calendar, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function NavbarSearch() {
   const router = useRouter();
@@ -92,17 +93,19 @@ export default function NavbarSearch() {
     <div ref={containerRef} className="relative flex items-center">
       {/* 1. Mobile Search Icon Button (visible only on mobile, when search is not open) */}
       {!isMobileSearchOpen && (
-        <button
+        <Button
+          variant="ghost"
+          size="icon"
           onClick={() => {
             setIsMobileSearchOpen(true);
             handleFocus();
             setTimeout(() => inputRef.current?.focus(), 50);
           }}
-          className="flex sm:hidden p-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-full transition-colors mr-1"
+          className="flex sm:hidden text-muted-foreground hover:text-foreground mr-1"
           title="Search"
         >
           <Search className="h-[1.2rem] w-[1.2rem]" />
-        </button>
+        </Button>
       )}
 
       {/* 2. Search Input Container */}

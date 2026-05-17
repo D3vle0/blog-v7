@@ -25,13 +25,14 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
+      className="text-muted-foreground hover:text-foreground"
       title={`Current theme: ${theme} (Click to cycle)`}
     >
       {theme === "light" && <Sun className="h-[1.2rem] w-[1.2rem]" />}
       {theme === "dark" && (
         <svg
-          width="18"
-          height="18"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
