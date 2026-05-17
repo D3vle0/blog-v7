@@ -123,12 +123,12 @@ export default function NavbarSearch() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground transition-colors group-focus-within:text-foreground" />
           <input
             ref={inputRef}
-            type="search"
+            type="text"
             placeholder="검색어 입력..."
             value={query}
             onFocus={handleFocus}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full rounded-full border border-border/60 bg-muted/40 py-1.5 pl-9 pr-8 text-sm outline-none transition-all placeholder:text-muted-foreground/75 focus:border-foreground/30 focus:bg-background focus:ring-1 focus:ring-foreground/10"
+            className="w-full rounded-full border border-border/60 bg-muted/40 py-1.5 pl-9 pr-4 text-sm outline-none transition-all placeholder:text-muted-foreground/75 focus:border-foreground/30 focus:bg-background focus:ring-1 focus:ring-foreground/10"
           />
 
         </div>
