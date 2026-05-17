@@ -187,7 +187,7 @@ export default async function Home() {
           {recentPost && (
             <section className="flex flex-col">
               <h2 className="text-2xl font-bold tracking-tight mb-4 flex items-center">
-                최신 게시물
+                Latest Post
               </h2>
               <div className="flex-1">
                 <LargePostCard post={recentPost} />
@@ -198,7 +198,7 @@ export default async function Home() {
           {recommendedPosts.length > 0 && (
             <section className="flex flex-col">
               <h2 className="text-2xl font-bold tracking-tight mb-4 flex items-center">
-                추천 게시물 🔥
+                Recommended Posts
               </h2>
               <div className="flex flex-col gap-2 flex-1">
                 {recommendedPosts.map((post) => (
