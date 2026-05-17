@@ -227,6 +227,19 @@ export function MarkdownRenderer({ content }: { content: string }) {
             </Zoom>
           );
         },
+        a({ href, children, ...props }: any) {
+          const isAnchor = href?.startsWith("#");
+          return (
+            <a
+              href={href}
+              target={isAnchor ? undefined : "_blank"}
+              rel={isAnchor ? undefined : "noopener noreferrer"}
+              {...props}
+            >
+              {children}
+            </a>
+          );
+        },
       }}
     >
       {content}
