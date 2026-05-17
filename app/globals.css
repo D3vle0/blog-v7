@@ -164,3 +164,18 @@
     /* letter-spacing: -0.03em !important; */
   }
 }
+
+/* Premium Glassmorphic react-medium-image-zoom overlays (Declared OUTSIDE @layer base to guarantee high specificity over third-party CSS) */
+[data-rmiz-modal-overlay="visible"] {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  transition: background-color 0.3s ease !important;
+}
+
+html.dark [data-rmiz-modal-overlay="visible"],
+.dark [data-rmiz-modal-overlay="visible"] {
+  background-color: rgba(25, 25, 25, 0.85) !important; /* Perfect match with dark theme bg: rgb(25 25 25) */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
