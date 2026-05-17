@@ -1,0 +1,9 @@
+{
+  "schedule": "daily",
+  "ignoredFiles": [
+    "node_modules/**/*",
+    ".next/**/*",
+    "public/next.svg",
+    "public/vercel.svg"
+  ]
+}
