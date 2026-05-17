@@ -63,16 +63,20 @@ export default async function BlogPostPage({
             {post.metadata.title}
           </h1>
           
-          <div className="flex gap-2 flex-wrap pt-2">
+          <div className="flex gap-2.5 flex-wrap pt-3">
             {post.metadata.categories?.map((cat) => (
-              <Badge key={cat} variant="secondary">
-                {cat}
-              </Badge>
+              <Link key={cat} href={`/?category=${encodeURIComponent(cat)}#category-filter-section`}>
+                <Badge variant="secondary" className="text-sm px-3.5 py-1.5 rounded-full font-medium cursor-pointer shadow-sm border border-transparent hover:bg-secondary/80 hover:scale-105 active:scale-98 transition-all duration-200">
+                  {cat}
+                </Badge>
+              </Link>
             ))}
             {post.metadata.tags?.map((tag) => (
-              <Badge key={tag} variant="outline">
-                #{tag}
-              </Badge>
+              <Link key={tag} href={`/tags?tag=${encodeURIComponent(tag)}`}>
+                <Badge variant="outline" className="text-sm px-3.5 py-1.5 rounded-full font-medium cursor-pointer shadow-sm border border-border/60 hover:bg-muted hover:scale-105 active:scale-98 transition-all duration-200">
+                  #{tag}
+                </Badge>
+              </Link>
             ))}
           </div>
         </div>

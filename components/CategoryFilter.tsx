@@ -1,11 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Post } from "@/lib/posts";
 import { PostCard } from "./PostCard";
 
-export default function CategoryFilter({ posts }: { posts: Post[] }) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+function CategoryFilterContent({ posts }: { posts: Post[] }) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // Retrieve selected category from query param (?category=Name) or default to "All"
+  const urlCategory = searchParams.get("category") || "All";
+  const [selectedCategory, setSelectedCategory] = useState<string>(urlCategory);
+
+  // Synchronize state with URL query parameters
+  useEffect(() => {
+    setSelectedCategory(searchParams.get("category") || "All");
+  }, [searchParams]);
 
   const categoryCounts: Record<string, number> = { All: posts.length };
   
@@ -34,8 +45,19 @@ export default function CategoryFilter({ posts }: { posts: Post[] }) {
         return cats.includes(selectedCategory);
       });
 
+  const handleCategorySelect = (cat: string) => {
+    setSelectedCategory(cat);
+    const params = new URLSearchParams(window.location.search);
+    if (cat && cat !== "All") {
+      params.set("category", cat);
+    } else {
+      params.delete("category");
+    }
+    router.replace(`/?${params.toString()}`, { scroll: false });
+  };
+
   return (
-    <section>
+    <section id="category-filter-section">
       <div className="flex flex-wrap items-center gap-2 mb-8">
         <span className="font-bold mr-2 text-lg">Category</span>
         {categories.map((cat) => {
@@ -43,14 +65,14 @@ export default function CategoryFilter({ posts }: { posts: Post[] }) {
           return (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors border ${
+              onClick={() => handleCategorySelect(cat)}
+              className={`px-3.5 py-2 rounded-full text-sm font-medium transition-all border ${
                 isSelected 
-                  ? "bg-foreground text-background border-foreground" 
-                  : "bg-background text-foreground border-border hover:bg-muted"
+                  ? "bg-foreground text-background border-foreground shadow-sm scale-102" 
+                  : "bg-muted/30 text-foreground/80 border-border/60 hover:bg-muted/70 hover:text-foreground hover:border-border"
               }`}
             >
-              {cat} <span className="opacity-70 text-xs ml-1">({categoryCounts[cat]})</span>
+              {cat} <span className={`text-xs ml-1 opacity-70 ${isSelected ? "text-background/80" : "text-muted-foreground"}`}>({categoryCounts[cat]})</span>
             </button>
           );
         })}
@@ -62,5 +84,13 @@ export default function CategoryFilter({ posts }: { posts: Post[] }) {
         ))}
       </div>
     </section>
+  );
+}
+
+export default function CategoryFilter({ posts }: { posts: Post[] }) {
+  return (
+    <Suspense fallback={<div className="text-center py-10 text-muted-foreground">카테고리 목록을 불러오는 중...</div>}>
+      <CategoryFilterContent posts={posts} />
+    </Suspense>
   );
 }
