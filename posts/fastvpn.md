@@ -5,7 +5,7 @@ draft: false
 categories: ["Cybersecurity"]
 tags: ["namecheap", "vpn", "IKEv2", "macOS"]
 cover:
-  image: img/fastvpn/5.png
+  image: images/posts/fastvpn/5.png
 ShowToc: true
 TocOpen: true
 ---
@@ -16,29 +16,29 @@ FastVPN이란 도메인 구매 사이트인 Namecheap에서 운영하는 VPN 서
 
 ## 획기적인 가격 정책
 
-![Untitled](/img/fastvpn/0.png)
+![Untitled](/images/posts/fastvpn/0.png)
 
 가격정책은 매달 5.88 달러 (첫달 0.99달러) 매년 34.56달러 (첫해 12달러)로 타 서비스에 비해 저렴한 편이다. 먼저 0.99달러로 한 달만 체험해보고 괜찮으면 연간 플랜을 사용해야겠다.
 
 ## 연결 불가
 
-![Untitled](/img/fastvpn/1.png)
+![Untitled](/images/posts/fastvpn/1.png)
 
 앱 스토어에서 FastVPN을 다운로드 받고 결제한 계정으로 로그인한다.
 
-![Untitled](/img/fastvpn/5.png)
+![Untitled](/images/posts/fastvpn/5.png)
 
 Best Available 로케이션으로 연결하고 몇 초 지나지 않아서 연결이 끊어진다.
 
-![Untitled](/img/fastvpn/2.png)
+![Untitled](/images/posts/fastvpn/2.png)
 
 이유를 알아보니… 아래 링크의 방법으로 macOS에서 IKEv2 VPN을 설정할 수 있다고 하는데, 문제는 macOS Ventura에서 해당 설정 메뉴가 없어서 설정이 불가하다는 것이다. 현재 macOS Ventura beta 6이 설치되어 있는데, macOS Monterey로 rollback 하는 수 밖에 없다.
 
 [How to set up IKEv2 VPN connection on Mac - FastVPN - Namecheap.com](https://www.namecheap.com/support/knowledgebase/article.aspx/10406/2268/how-to-set-up-ikev2-vpn-connection-on-mac/)
 
-![Untitled](/img/fastvpn/3.png)
+![Untitled](/images/posts/fastvpn/3.png)
 
-![Untitled](/img/fastvpn/4.png)
+![Untitled](/images/posts/fastvpn/4.png)
 
 IKEv2 VPN 추가 버튼을 눌러도 아무것도 없는 빈 창이 나온다.
 

@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
+import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Zoom from "react-medium-image-zoom";
@@ -17,6 +18,29 @@ const ALERT_TYPES = {
   IMPORTANT: { icon: Flame, color: "text-purple-500", bg: "bg-purple-500/10", border: "border-purple-500" },
   WARNING: { icon: AlertTriangle, color: "text-orange-500", bg: "bg-orange-500/10", border: "border-orange-500" },
   CAUTION: { icon: AlertTriangle, color: "text-red-500", bg: "bg-red-500/10", border: "border-red-500" },
+};
+
+const DEFAULT_IMAGE_WIDTH = 1200;
+const DEFAULT_IMAGE_HEIGHT = 675;
+
+const normalizeImageSrc = (src?: string) => {
+  if (!src) return "";
+  if (src.startsWith("/img/")) {
+    return src.replace("/img/", "/images/posts/");
+  }
+  if (src.startsWith("img/")) {
+    return `/${src.replace("img/", "images/posts/")}`;
+  }
+  return src;
+};
+
+const parseDimension = (value: unknown, fallback: number) => {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string") {
+    const parsed = Number.parseInt(value, 10);
+    if (Number.isFinite(parsed)) return parsed;
+  }
+  return fallback;
 };
 
 function CustomBlockquote({ children, ...props }: any) {
@@ -216,12 +240,32 @@ export function MarkdownRenderer({ content }: { content: string }) {
 
           return <p>{children}</p>;
         },
-        img(props) {
+        img({ src, alt, width, height, className, ...props }: any) {
+          const normalizedSrc = normalizeImageSrc(src);
+          if (!normalizedSrc) return null;
+
+          const { node: _node, ...rest } = props;
+          void _node;
+          const imageWidth = parseDimension(width, DEFAULT_IMAGE_WIDTH);
+          const imageHeight = parseDimension(height, DEFAULT_IMAGE_HEIGHT);
+          const mergedClassName = [
+            "rounded-xl border border-border shadow-sm max-h-[600px] object-contain mx-auto",
+            className,
+          ]
+            .filter(Boolean)
+            .join(" ");
+
           return (
             <Zoom>
-              <img
-                {...props}
-                className="rounded-xl border border-border shadow-sm max-h-[600px] object-contain mx-auto"
+              <Image
+                {...rest}
+                src={normalizedSrc}
+                alt={alt ?? ""}
+                width={imageWidth}
+                height={imageHeight}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className={mergedClassName}
+                style={{ width: "100%", height: "auto" }}
                 loading="lazy"
               />
             </Zoom>

@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["fail2ban", "ssh"]
 cover:
-  image: img/what-is-going-on-in-my-server/1.png
+  image: images/posts/what-is-going-on-in-my-server/1.png
 ShowToc: true
 TocOpen: true
 ---
@@ -14,7 +14,7 @@ TocOpen: true
 
 fail2ban을 통하여 ssh 비밀번호를 3번 틀리면 120분 밴하도록 설정했다. 그런데 해커들은 그것을 뚫고서 계속해서 공격을 한다. (?) 3일간 31357번의 로그인 시도가 존재해 일주일 간 총 64322번이다.
 
-![img](/img/what-is-going-on-in-my-server/1.png)
+![img](/images/posts/what-is-going-on-in-my-server/1.png)
 
 github에 검색을 해보니 [fail2ban을 우회할 수 있는 툴을 발견했다.](https://github.com/Neetx/sshdodge) 이론상 fail2ban을 우회할 수 있는 방법이 존재하는 듯 하며 fail2ban을 통한 해커 차단을 실패한 경우도 찾아볼 수 있었다.([1](https://www.howtoforge.com/community/threads/fail2ban-fails-to-ban.37659/) [2](https://blog.oneiroi.co.uk/hacking/linux/when-fail2ban-fails-to-ban-dissecting-the-hack/))
 

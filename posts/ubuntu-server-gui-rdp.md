@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["gui", "rdp", "ubuntu"]
 cover:
-  image: img/ubuntu-server-gui-rdp/2.png
+  image: images/posts/ubuntu-server-gui-rdp/2.png
 ShowToc: true
 TocOpen: true
 ---
@@ -39,7 +39,7 @@ sudo apt install ubuntu-desktop-minimal
 sudo apt install --no-install-recommends ubuntu-desktop-minimal
 ```
 
-![img](/img/ubuntu-server-gui-rdp/1.png)
+![img](/images/posts/ubuntu-server-gui-rdp/1.png)
 
 설치가 완료되면 gui를 실행한다. 단 이 명령은 홈서버 노트북에서 입력해야 한다.
 
@@ -47,11 +47,11 @@ sudo apt install --no-install-recommends ubuntu-desktop-minimal
 startx
 ```
 
-![img](/img/ubuntu-server-gui-rdp/2.png)
+![img](/images/posts/ubuntu-server-gui-rdp/2.png)
 
 잠시 기다리면 소프트웨어 업데이터가 나오는데 restart now를 누른다.
 
-![img](/img/ubuntu-server-gui-rdp/3.png)
+![img](/images/posts/ubuntu-server-gui-rdp/3.png)
 
 이제 정상적으로 ubuntu desktop이 설치가 되었다.
 
@@ -90,6 +90,6 @@ ResultActive=yes
 
 `/etc/xrdp/xrdp.ini` 에서 포트를 원하는 값으로 변경할 수도 있다.
 
-![img](/img/ubuntu-server-gui-rdp/4.png)
+![img](/images/posts/ubuntu-server-gui-rdp/4.png)
 
 그 후 windows remote desktop 앱에서 호스트를 입력하고 username, password를 입력해주면 접속이 된다.

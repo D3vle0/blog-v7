@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["ubuntu", "homeserver", "server"]
 # cover:
-#   image: img/fastvpn/5.png
+#   image: images/posts/fastvpn/5.png
 ShowToc: true
 TocOpen: true
 ---

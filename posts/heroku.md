@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["heroku", "serverless"]
 cover:
-  image: img/heroku/3.png
+  image: images/posts/heroku/3.png
 ShowToc: true
 TocOpen: true
 ---
@@ -18,13 +18,13 @@ TocOpen: true
 
 [Heroku](https://www.heroku.com/home)는 Node.js, Ruby, Java, PHP, Python, Go, Scala, Clojure 언어로 된 코드를 쉽게 배포할 수 있는 서비스다. (그 외에 리눅스에서 작동 가능한 언어라면 모두 배포할 수 있다고 한다.)
 
-![a](/img/heroku/1.png)
+![a](/images/posts/heroku/1.png)
 
-![a](/img/heroku/2.png)
+![a](/images/posts/heroku/2.png)
 
 이름, 이메일, 직업(?), 국가, 주 사용 언어 선택 후 가입을 한다. 비번 설정, 이메일 인증을 마치면 개인 dashboard에 들어가게 된다.
 
-![a](/img/heroku/3.png)
+![a](/images/posts/heroku/3.png)
 
 create new app을 누르고 원하는 웹어플리케이션의 이름을 입력한다. 서버 지역은 미국으로 한다.
 

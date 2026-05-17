@@ -5,7 +5,7 @@ draft: false
 categories: ["Security"]
 tags: ["suninatas"]
 cover:
-  image: img/suninatas-32/3.png
+  image: images/posts/suninatas-32/3.png
 ShowToc: true
 TocOpen: true
 ---
@@ -35,19 +35,19 @@ TocOpen: true
 
 문제 설명을 보면 USB 이미지 특정 부분이 손상되었다고 한다. 먼저 `hex fiend`로 헥스값을 확인해본다.
 
-![img](/img/suninatas-32/1.png)
+![img](/images/posts/suninatas-32/1.png)
 
 FAT32 시스템의 boot sector 임을 확인할 수 있는데, 시그니처인 `55 AA`가 앞으로 많이 나와있는 모습이다. sector 하나의 크기는 512byte 이기 때문에 `55 AA`가 `0x1fe` 자리에 있어야 한다. 따라서 null 값을 임의로 삽입해주자.
 
-![img](/img/suninatas-32/2.png)
+![img](/images/posts/suninatas-32/2.png)
 
 이미지가 복구되었고, 이제 FTK Imager를 통해 분석한다.
 
-![img](/img/suninatas-32/3.png)
+![img](/images/posts/suninatas-32/3.png)
 
 테러 계획이 담긴 문서를 확인할 수 있다. 수정 날짜는 2016년 5월 30일 02:44:02 인데 UTC+9 형식에 맞추면 11:44:02가 된다.
 
-![img](/img/suninatas-32/4.png)
+![img](/images/posts/suninatas-32/4.png)
 
 맥 finder에서는 수정일의 초 단위를 확인할 수 없으니 `stat` 명령을 활용한다.
 
@@ -68,7 +68,7 @@ Change: Wed Jan 26 20:54:28 2022
 
 11:44:02 인 것을 확실하게 확인했다.
 
-![img](/img/suninatas-32/5.png)
+![img](/images/posts/suninatas-32/5.png)
 
 테러 장소는 `Rose Park`이다.
 

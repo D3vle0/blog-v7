@@ -5,7 +5,7 @@ draft: false
 categories: ["Security"]
 tags: ["suninatas"]
 cover:
-  image: img/suninatas-29/4.png
+  image: images/posts/suninatas-29/4.png
 ShowToc: true
 TocOpen: true
 ---
@@ -32,11 +32,11 @@ TocOpen: true
 
 ### 문제 파일 분석
 
-![img](/img/suninatas-29/1.png)
+![img](/images/posts/suninatas-29/1.png)
 
 header가 `45 47 47`인 것으로 보아 `.egg` 압축 파일일 것이다. 확장자 변경 후 반디집으로 압축을 풀면 `vmdk` 파일이 나오고 해당 파일을 FTK Imager 에 올린다.
 
-![img](/img/suninatas-29/2.png)
+![img](/images/posts/suninatas-29/2.png)
 
 Windows 7 기반 시스템이다.
 
@@ -80,15 +80,15 @@ Windows 7 기반 시스템이다.
 
 C드라이브 아래에 수상한 이름의 폴더가 있다.
 
-![img](/img/suninatas-29/3.png)
+![img](/images/posts/suninatas-29/3.png)
 
-![img](/img/suninatas-29/4.png)
+![img](/images/posts/suninatas-29/4.png)
 
 `C:\v196vv8\v1valv\Computer1\24052016 #training\ss\` 경로에 많은 사진 파일들이 있는데 추출해서 확인해보자.
 
 `5.jpg` 이름을 가진 파일에 키로거 프로그램의 이름과 경로가 적혀있다.
 
-![img](/img/suninatas-29/5.png)
+![img](/images/posts/suninatas-29/5.png)
 
 > 2번키: `c:\v196vv8\v1tvr0.exe`
 
@@ -96,17 +96,17 @@ C드라이브 아래에 수상한 이름의 폴더가 있다.
 
 여러 사진들이 있던 바로 상위폴더인 `C:\v196vv8\v1valv\Computer1\24052016 #training\`에 `w1.dat`과 `z1.dat` 파일이 존재하는데 이를 추출해보자.
 
-![img](/img/suninatas-29/7.png)
+![img](/images/posts/suninatas-29/7.png)
 
 `w1.dat`에 서버로부터 프로그램들을 다운받는 듯한 로그가 보이는데, 이 PC에는 IE 외에는 다른 브라우저가 설치되어 있지 않은 상태로 보아 브라우저 기록을 확인한다.
 
 `C:\Users\training\Appdata\Local\Microsoft\Windows\History\History.IE5\index.dat`
 
-![img](/img/suninatas-29/8.png)
+![img](/images/posts/suninatas-29/8.png)
 
 일반적인 텍스트 에디터로 보면 다 깨지기 때문에 `index.dat analyzer`을 이용해서 분석할 수 있다.
 
-![img](/img/suninatas-29/9.png)
+![img](/images/posts/suninatas-29/9.png)
 
 파일명에 키로거라고 적힌 exe 파일이 다운로드 된 시각은 2016-05-24_04:25:06 이다.
 
@@ -116,7 +116,7 @@ C드라이브 아래에 수상한 이름의 폴더가 있다.
 
 나머지 파일 하나 `z1.dat`을 보자.
 
-![img](/img/suninatas-29/6.png)
+![img](/images/posts/suninatas-29/6.png)
 
 > 4번키: `blackkey is a Good man`
 

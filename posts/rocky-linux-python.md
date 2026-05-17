@@ -3,7 +3,7 @@ title: "Rocky Linux 9에서 Python 3.14 설치"
 date: 2025-12-25T12:11:00+09:00
 draft: false
 cover:
-  image: img/rocky-linux-python/1.jpg
+  image: images/posts/rocky-linux-python/1.jpg
   caption: ""
 categories: ["Coding"]
 tags: ["server", "linux", "python", "rocky"]

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Post } from "@/lib/posts";
 import { Search, Loader2, X, Calendar, ArrowRight } from "lucide-react";
@@ -181,11 +182,14 @@ export default function NavbarSearch() {
                   className="flex gap-4 p-3.5 hover:bg-muted/50 transition-colors cursor-pointer group"
                 >
                   {post.metadata.coverImage ? (
-                    <div className="w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-border/40 bg-muted">
-                      <img
+                    <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-border/40 bg-muted">
+                      <Image
                         src={post.metadata.coverImage}
                         alt=""
-                        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        fill
+                        sizes="64px"
+                        className="object-cover transition-transform group-hover:scale-105"
+                        loading="lazy"
                       />
                     </div>
                   ) : (

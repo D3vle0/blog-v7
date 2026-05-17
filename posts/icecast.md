@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["icecast", "radio", "streaming"]
 cover:
-  image: img/icecast/2.png
+  image: images/posts/icecast/2.png
   caption: ""
 ShowToc: true
 TocOpen: true
@@ -15,7 +15,7 @@ TocOpen: true
 지금으로부터 약 3년 전, 딥 웹을 탐험하던 중 장르 별로 음악을 실시간 스트리밍할 수 있는 인터넷 라디오 방송국 사이트에 들어갔다. 딥 웹 특유의 음산한 느낌과 함께 희안한 장르의 음악을 들으니 나도 이런 서비스를 만들어보고 싶다는 생각이 들었다.  
 그렇게 생각만 하다가 몇 개월 전 드디어 실행에 옮기게 되었다. 그때는 Icecast같은 실시간 송출 프로그램의 존재를 전혀 모른 채 nodejs로 이를 구현하려고 했다. [무언가 만들어지기는 했는데 (당시 커밋),](https://github.com/k-atusa/ASMR/tree/40d03cad5778d71dc05e82e83da45638c2101c9c) 청취자가 음악을 들을 수 없을 수준으로 소리가 끊겼다. 한계를 느껴 이 프로젝트는 잠시 제쳐두었던 중, 며칠 전에 vlc 플레이어에서 이런 기능을 발견했다.
 
-![img](/img/icecast/1.png)
+![img](/images/posts/icecast/1.png)
 
 Icecast라는 프로그램을 활용해 만든 방송국들의 목록이 표시되는 것이다! Icecast가 무엇인지 알아봤고, 이를 활용하면 실시간 송출하는 로직을 내가 직접 설계하지 않고 간단하게 나만의 방송국을 만들 수 있다는 것을 알았다.
 
@@ -146,11 +146,11 @@ output.icecast(
 
 이제 `docker-compose up -d` 명령으로 컨테이너를 실행한다.
 
-![img](/img/icecast/2.png)
+![img](/images/posts/icecast/2.png)
 
 `http://<서버 주소>:7000`에 접속하면 Icecast 관리 페이지가 뜬다. `Mounts` 탭에 들어가면 `stream` 마운트 포인트가 생성된 것을 볼 수 있다. 
 
-![img](/img/icecast/3.png)
+![img](/images/posts/icecast/3.png)
 
 또한 Admin 페이지에서 현재 청취자 수와 송출 상태를 확인할 수 있다.
 

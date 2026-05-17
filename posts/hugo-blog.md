@@ -5,7 +5,7 @@ draft: false
 categories: ["Blog"]
 tags: ["hugo"]
 cover:
-  image: img/hugo-blog/4.png
+  image: images/posts/hugo-blog/4.png
 ShowToc: true
 TocOpen: true
 ---
@@ -392,7 +392,7 @@ series = []
 
 [disqus에 로그인](https://disqus.com/)을 하고 [이곳을 눌러 자신의 사이트에 들어갈 댓글창을 만든다.](https://disqus.com/admin/create/)
 
-![img](/img/hugo-blog/1.png)
+![img](/images/posts/hugo-blog/1.png)
 
 pricing 화면에서는 basic을 subscribe하면 된다. 왼쪽 바에서 `general` 을 누르면 `Shortname` 을 확인할 수 있는데, 이 shortname을 `config.toml`에서 주석처리 되어있는 `disqusShortname` 에 넣으면 된다. 꼭 `hugo-coder` 테마처럼 맨 윗부분에 있지는 않을 수도 있다. 자신이 선택한 테마의 config 파일을 잘 살펴보다가 disqus shortname을 입력하는 부분이 있으면 그곳에 복사해주자. 그리고 disqus 사이트에서 표시되었던 `Shortname` 밑에 `Website URL`에 자신의 블로그 도메인을 입력한다.
 
@@ -402,11 +402,11 @@ github repository를 만들고 블로그 폴더를 통째로 push 한다. 정적
 
 netlify에서 github login을 하고 Add new site > Import an existing project > github을 차례대로 누른 뒤 조금 전 push한 repo를 선택한다.
 
-![img](/img/hugo-blog/2.png)
+![img](/images/posts/hugo-blog/2.png)
 
 위와 같이 자동으로 hugo 프로젝트임을 감지한 것을 확인하고 deploy site를 누른다.
 
-![img](/img/hugo-blog/3.png)
+![img](/images/posts/hugo-blog/3.png)
 
 도메인이 netlify에서 랜덤으로 지정한 도메인이다. 이제 자신만의 도메인을 연결해보자.
 
@@ -416,7 +416,7 @@ namecheap에서 자신만의 도메인을 구매해보자. ([이곳에서 블록
 
 사이트 설정 > Domain Management 에서 Add custom domain 버튼을 누른다.
 
-![img](/img/hugo-blog/4.png)
+![img](/images/posts/hugo-blog/4.png)
 
 자신의 도메인을 입력하고 verify. 몇 분 뒤 자신만의 도메인이 적용된 것을 확인할 수 있다.
 

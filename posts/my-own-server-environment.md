@@ -3,7 +3,7 @@ title: "홈서버 및 Oracle 서버 세팅"
 date: 2026-02-20T20:55:00+09:00
 draft: false
 cover:
-  image: img/my-own-server-environment/1.jpg
+  image: images/posts/my-own-server-environment/1.jpg
   caption: ""
 categories: ["Server"]
 tags: ["server", "linux", "rocky", "debian"]

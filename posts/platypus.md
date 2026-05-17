@@ -5,7 +5,7 @@ draft: false
 categories: ["macOS"]
 tags: ["platypus", "protocol", "scheme"]
 cover:
-  image: img/platypus/2.png
+  image: images/posts/platypus/2.png
 ShowToc: true
 TocOpen: true
 ---
@@ -18,31 +18,31 @@ TocOpen: true
 
 [Platypus 라는 프로그램이 있다.](https://sveinbjorn.org/platypus) Platypus는 터미널 상에서만 작동하는 cli 프로그램을 맥 네이티브 프로그램으로 변환해주는 툴이다. 쉘 스크립트 (sh, bash, tsh, tcsh, ksh, zsh, env, applescript) 는 물론이고 심지어 Python, Ruby, Tcl, Expect, PHP, Swift, AWK, JavaScript, node.js 프로그램도 지원한다.
 
-![img](/img/platypus/1.png)
+![img](/images/posts/platypus/1.png)
 
 실행 후 첫 화면이다. `print("Hello, World!")` 이 적힌 파이썬 파일을 올려보겠다.
 
-![img](/img/platypus/2.png)
+![img](/images/posts/platypus/2.png)
 
 현재 내 맥북에는 python이 `/usr/bin/python3`에 3.8.9버전, `/opt/homebrew/bin/python3`에 3.9.12가 설치되어 있어서 위 사진에 표시된 경로가 존재하지 않다고 빨갛게 표시된다. `/opt/homebrew/bin/python3`로 변경하겠다.
 
-![img](/img/platypus/3.png)
+![img](/images/posts/platypus/3.png)
 
 앱 이름 지정, 앱 아이콘은 원하는 사진으로 지정하고, 중간에 `Accept dropped items`를 체크하면 표시되는 Settings를 누른다.
 
-![img](/img/platypus/4.png)
+![img](/images/posts/platypus/4.png)
 
 오른쪽 아래 `Register as URI scheme handler` 를 체크하고 원하는 프로토콜을 작성한다.
 
-![img](/img/platypus/5.png)
+![img](/images/posts/platypus/5.png)
 
 Apply 하고 create app 버튼을 누르자.
 
-![img](/img/platypus/6.png)
+![img](/images/posts/platypus/6.png)
 
 Application 디렉토리에 넣으면 launchpad에서도 확인할 수 있다.
 
-![img](/img/platypus/7.png)
+![img](/images/posts/platypus/7.png)
 
 이렇게 Hello, World!가 제대로 출력되는 것을 볼 수 있다.
 
@@ -50,7 +50,7 @@ Application 디렉토리에 넣으면 launchpad에서도 확인할 수 있다.
 
 터미널에서 `open <프로토콜>://` 을 입력하거나, 브라우저에서 `<프로토콜>://`를 입력하면 된다. 일부 브라우저 (firefox) 에 한해서 `<프로토콜>:///`를 입력해야 할 수도 있다.
 
-![img](/img/platypus/8.png)
+![img](/images/posts/platypus/8.png)
 
 정상적으로 프로그램이 실행된다.
 
