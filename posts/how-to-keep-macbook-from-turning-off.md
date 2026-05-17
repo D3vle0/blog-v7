@@ -5,7 +5,7 @@ draft: false
 categories: ["macOS"]
 tags: ["amphetamine"]
 cover:
-  image: img/how-to-keep-macbook-from-turning-off/1.png
+  image: images/posts/how-to-keep-macbook-from-turning-off/1.png
 ShowToc: true
 TocOpen: true
 ---
@@ -16,7 +16,7 @@ TocOpen: true
 
 Amphetamine이란 맥북 화면이 꺼지지 않게 유지하는 프로그램으로 잘 알려져 있다. 몇 시간 몇 분 동안 화면이 꺼지지 않는 상태를 유지할 것인지, 특정 프로그램이 실행하고 있을 때 세션을 시작할 것인지 등 트리거 기능을 포함하여 매우 상세하게 설정이 가능하다. 만약 화면을 잠글 것이고 화면이 꺼지지 않게 유지하고 싶으면 Amphetamine에서 start new session을 하면 된다. 그러면 자리를 비우고 있어도 아름다운 잠금 화면이 유지가 될 것이다.
 
-![a](/img/how-to-keep-macbook-from-turning-off/1.png)
+![a](/images/posts/how-to-keep-macbook-from-turning-off/1.png)
 
 ## 화면을 덮어도 꺼지지 않게 설정
 

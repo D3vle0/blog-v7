@@ -5,7 +5,7 @@ draft: false
 categories: ["Android"]
 tags: ["rom"]
 cover:
-  image: img/poco-f1-install-miui-12.6/2.png
+  image: images/posts/poco-f1-install-miui-12.6/2.png
 ShowToc: true
 TocOpen: true
 ---
@@ -14,9 +14,9 @@ TocOpen: true
 
 약 3개월 간 Android 11 기반 Pixel Experience를 사용하다가 기본 탑재된 GCam이 너무 성능이 떨어지고 특히 동영상 촬영 시 초점이 안잡히는 문제가 있었다. 샤오미 기본 카메라의 편의성을 위해 다시 MIUI로 rollback 할 생각을 하던 중 Android 12 기반 MIUI 13을 port 시킨 롬을 찾았다. SPROM MIUI로 불리는 버전이고 중국 내수용 롬을 그대로 port 한 롬이라 한글 지원은 안된다.
 
-![img](/img/poco-f1-install-miui-12.6/1.png)
+![img](/images/posts/poco-f1-install-miui-12.6/1.png)
 
-![img](/img/poco-f1-install-miui-12.6/2.png)
+![img](/images/posts/poco-f1-install-miui-12.6/2.png)
 
 모든 것이 작동되고 잘 좋았으나 Beta 버전인 만큼 무언가 어색한 UI, 그리고 개선되지 않은 GCam 탑재가 매우 불편하게 느껴져 **MIUI 12.6**을 찾았다.
 

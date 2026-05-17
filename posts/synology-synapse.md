@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["synology", "nas", "matrix", "synapse"]
 cover:
-  image: img/synology-synapse/1.png
+  image: images/posts/synology-synapse/1.png
   caption: ""
 ShowToc: true
 TocOpen: true
@@ -13,35 +13,35 @@ TocOpen: true
 
 ## 도메인 관련 설정
 
-![](/img/synology-synapse/1.png)
+![](/images/posts/synology-synapse/1.png)
 
 채팅 서버를 운영하고 싶은 subdomain을 세팅한다.
 
-![](/img/synology-synapse/2.png)
+![](/images/posts/synology-synapse/2.png)
 
 제어판 > 로그인 포털 > 고급 > 역방향 프록시에서 위와 같이 설정한다.
 
 ## 연결성 관련 설정
 
-![](/img/synology-synapse/3.png)
+![](/images/posts/synology-synapse/3.png)
 
 사용자 지정 머리글 (커스텀 헤더) 생성 시 websocket을 선택하여 위와 같이 설정한다.
 
-![](/img/synology-synapse/4.png)
+![](/images/posts/synology-synapse/4.png)
 
 제어판 > 네트워크 > 연결성에서 HTTP/2 활성화를 체크한다.
 
-![](/img/synology-synapse/5.png)
+![](/images/posts/synology-synapse/5.png)
 
 제어판 > 보안 > 고급에서 HTTP 압축 활성화를 체크한다.
 
 ## Synapse 컨테이너 세팅
 
-![](/img/synology-synapse/6.png)
+![](/images/posts/synology-synapse/6.png)
 
 File Station에서 docker 폴더 밑에 `synapse` 폴더를 만든다.
 
-![](/img/synology-synapse/7.png)
+![](/images/posts/synology-synapse/7.png)
 
 synapse 폴더 밑에 `data`, `db` 폴더를 만든다.
 
@@ -57,7 +57,7 @@ matrixdotorg/synapse:latest generate
 
 서버 이름을 입력하고 위 명령을 실행한다.
 
-![](/img/synology-synapse/8.png)
+![](/images/posts/synology-synapse/8.png)
 
 data 폴더 안의 homeserver.yaml 파일을 위와 같이 수정한다. 홈서버 이름 밑에 다음 내용을 추가한다.
 
@@ -67,7 +67,7 @@ enable_registration_without_verification: true
 enable_group_creation: true
 ```
 
-![](/img/synology-synapse/9.png)
+![](/images/posts/synology-synapse/9.png)
 
 ```yaml
 database:
@@ -78,7 +78,7 @@ database:
 
 이 내용을 삭제하고, 아래의 내용으로 replace 한다.
 
-![](/img/synology-synapse/10.png)
+![](/images/posts/synology-synapse/10.png)
 
 ```yaml
 database:
@@ -92,7 +92,7 @@ database:
     cp_max: 10
 ```
 
-![](/img/synology-synapse/11.png)
+![](/images/posts/synology-synapse/11.png)
 
 ```yaml
 services:

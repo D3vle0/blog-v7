@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["server", "debian", "linux", "android", "busybox"]
 cover:
-  image: img/install-debian-on-phone/6.png
+  image: images/posts/install-debian-on-phone/6.png
   caption: ""
 ShowToc: true
 TocOpen: true
@@ -61,20 +61,20 @@ fastboot boot <twrp 이미지 경로>
 .\fastboot flash recovery <twrp 이미지 경로>
 ```
 
-![](/img/install-debian-on-phone/1.png)
+![](/images/posts/install-debian-on-phone/1.png)
 
 TWRP 진입 후 Unmodified System Partition 알림이 뜨면 하단의 슬라이드 바를 슬라이드 한다.
-![](/img/install-debian-on-phone/2.png)
+![](/images/posts/install-debian-on-phone/2.png)
 
-![](/img/install-debian-on-phone/3.png)
+![](/images/posts/install-debian-on-phone/3.png)
 
 Wipe > Advanced Wipe 진입, `Dalvik/ART Cache`, `System`, `Cache`, `data`, `Vendor`, `Internal Storage` 체크 후 포맷  
 
-![](/img/install-debian-on-phone/4.png)
+![](/images/posts/install-debian-on-phone/4.png)
 
 이러한 에러 메세지가 나와도 무시한다.  
 
-![](/img/install-debian-on-phone/5.png)
+![](/images/posts/install-debian-on-phone/5.png)
 
 Wipe > Format Data 진입, yes 입력 후 포맷  
 
@@ -95,84 +95,84 @@ adb push <Linux Deploy 경로> /sdcard/linuxdeploy.apk
 adb push <Busybox 경로> /sdcard/busybox.apk
 ```
 
-![](/img/install-debian-on-phone/6.png)
+![](/images/posts/install-debian-on-phone/6.png)
 
 재부팅을 한번 더 하면 앱 서랍에 Magisk가 나올 것이다.
 
-![](/img/install-debian-on-phone/7.png)
+![](/images/posts/install-debian-on-phone/7.png)
 
 Magisk 아이콘을 눌러 설치하자.
 
-![](/img/install-debian-on-phone/8.png)
+![](/images/posts/install-debian-on-phone/8.png)
 
 첫 실행시 OK를 눌러 재부팅한다.
 
-![](/img/install-debian-on-phone/9.png)
+![](/images/posts/install-debian-on-phone/9.png)
 
 재부팅 후 다시 Magisk를 실행하여 나오는 팝업에 OK를 누른다.
 
-![](/img/install-debian-on-phone/10.png)
+![](/images/posts/install-debian-on-phone/10.png)
 
 Magisk 글자 옆 Install 버튼을 누르고, Option 옆 Next를 누르고, Method는 Direct Install을 선택 후 Let's go를 누른다.
 
-![](/img/install-debian-on-phone/11.png)
+![](/images/posts/install-debian-on-phone/11.png)
 
 설치 완료.
 
-![](/img/install-debian-on-phone/12.png)
+![](/images/posts/install-debian-on-phone/12.png)
 
 스마트폰으로 옮긴 APK 파일들을 모두 설치해준다.
 
-![](/img/install-debian-on-phone/13.png)
+![](/images/posts/install-debian-on-phone/13.png)
 
 Root Check 앱에서 Verify Boot 버튼을 누른다.
 
-![](/img/install-debian-on-phone/14.png)
+![](/images/posts/install-debian-on-phone/14.png)
 
 Forever 선택 후 Grant
 
-![](/img/install-debian-on-phone/15.png)
+![](/images/posts/install-debian-on-phone/15.png)
 
 체크 표시가 뜨면 성공적으로 루팅 작업에 성공한 것이다.
 
 ## Busybox 설치
 
-![](/img/install-debian-on-phone/16.png)
+![](/images/posts/install-debian-on-phone/16.png)
 
 Busybox를 실행하고 root 권한을 부여한다.
 
-![](/img/install-debian-on-phone/17.png)
+![](/images/posts/install-debian-on-phone/17.png)
 
 설치 경로를 `/system/bin` 으로 선택 후 Install 한다.
 
-![](/img/install-debian-on-phone/18.png)
+![](/images/posts/install-debian-on-phone/18.png)
 
 설치 완료.
 
 ## Linux Deploy 설치
 
-![](/img/install-debian-on-phone/19.png)
+![](/images/posts/install-debian-on-phone/19.png)
 
 화면 하단의 설정 버튼을 누른다.
 
-![](/img/install-debian-on-phone/20.png)
+![](/images/posts/install-debian-on-phone/20.png)
 
 Distribution은 `Debian`, Username을 원하는 닉네임으로 변경하고 User Password에서 비밀번호도 설정한다.
 
-![](/img/install-debian-on-phone/21.png)
+![](/images/posts/install-debian-on-phone/21.png)
 
 init enable 체크, ssh enable 체크, ssh는 원하는 포트를 지정한다.
 
-![](/img/install-debian-on-phone/22.png)
+![](/images/posts/install-debian-on-phone/22.png)
 
 Linux Deploy 설정에서 Lock screen, Lock Wifi, Wake Lock을 체크한다.
 
-![](/img/install-debian-on-phone/23.png)
+![](/images/posts/install-debian-on-phone/23.png)
 
 화면 상단 점 세개 클릭, Install을 눌러 Debian을 설치한다.
 
-![](/img/install-debian-on-phone/24.png)
+![](/images/posts/install-debian-on-phone/24.png)
 
 `<<< deploy` 글자가 보일때 까지 기다리고, 설치가 끝나면 start 버튼을 눌러 서버를 시작한다.
 
-![](/img/install-debian-on-phone/25.png)
+![](/images/posts/install-debian-on-phone/25.png)

@@ -5,12 +5,12 @@ draft: false
 categories: ["Server"]
 tags: ["tor", "onion", "relay"]
 cover:
-  image: img/setup-tor-relay/1.webp
+  image: images/posts/setup-tor-relay/1.webp
 ShowToc: true
 TocOpen: true
 ---
 
-![img](/img/setup-tor-relay/1.webp)
+![img](/images/posts/setup-tor-relay/1.webp)
 
 ## Tor란?
 
@@ -52,4 +52,4 @@ sudo -u debian-tor nyx
 
 위 명령을 사용하면 현재 나의 Tor 릴레이를 모니터링할 수 있다.
 
-![img](/img/setup-tor-relay/2.png)
+![img](/images/posts/setup-tor-relay/2.png)

@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["tor", "server", "linux", "NPM"]
 cover:
-  image: img/tor-proxy-npm/1.png
+  image: images/posts/tor-proxy-npm/1.png
 ShowToc: true
 TocOpen: true
 ---
@@ -63,7 +63,7 @@ cat /var/lib/tor/hidden_service/hostname
 
 `.onion` 도메인을 확인한 후, Nginx Proxy Manager 웹 UI에서 `Proxy Hosts` 메뉴로 이동 후 `Add Proxy Host` 버튼을 클릭한다.
 
-![img](/img/tor-proxy-npm/1.png)
+![img](/images/posts/tor-proxy-npm/1.png)
 
 
 위와 같이 `.onion` 도메인이 <컨테이너명>:<외부 포트> 로 향하는 리버스 프록시를 만들어주면 된다.

@@ -5,7 +5,7 @@ draft: false
 categories: ["Blockchain"]
 tags: ["dogecoin", "binance", "xmrig"]
 cover:
-  image: img/dogecoin/3.png
+  image: images/posts/dogecoin/3.png
   caption: ""
 ShowToc: true
 TocOpen: true
@@ -19,11 +19,11 @@ TocOpen: true
 
 ## 지갑 주소 확인
 
-![Untitled](/img/dogecoin/1.png)
+![Untitled](/images/posts/dogecoin/1.png)
 
 Wallet > Fiat and Spot 에 들어가서 도지코인 검색 후 Deposit 버튼을 누른다.
 
-![Untitled](/img/dogecoin/2.png)
+![Untitled](/images/posts/dogecoin/2.png)
 
 이후 원하는 네트워크 선택 후 지갑 주소를 복사한다.
 
@@ -57,16 +57,16 @@ Wallet > Fiat and Spot 에 들어가서 도지코인 검색 후 Deposit 버튼�
 
 이제 xmrig 프로그램을 실행하면 unmineable 채굴 풀에 연결, 정상적으로 도지 코인을 채굴하는 모습을 볼 수 있다!
 
-![Untitled](/img/dogecoin/3.png)
+![Untitled](/images/posts/dogecoin/3.png)
 
 ## 결과
 
 평균적으로 1300H/s 의 해시레이트를 가진다. 
 
-![Untitled](/img/dogecoin/4.png)
+![Untitled](/images/posts/dogecoin/4.png)
 
 unmineable 사이트 계산기에 대입해보니 24시간 내내 돌렸을 때 하루 0.39429468 도지, 한 달 11.8288404 도지를 얻을 수 있다고 나와있다.
 
-![Untitled](/img/dogecoin/5.png)
+![Untitled](/images/posts/dogecoin/5.png)
 
 한 달에 1072원을 벌 수 있다. 물론 나는 수익성을 위해 채굴하는 것이 아니고 블록체인 공부와 해외 거래소 체험을 위해 하는 것이니 상관 없다.

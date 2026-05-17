@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["linux", "docker", "matrix", "synapse"]
 cover:
-  image: img/linux-synapse/1.png
+  image: images/posts/linux-synapse/1.png
   caption: ""
 ShowToc: true
 TocOpen: true
@@ -57,7 +57,7 @@ database:
     cp_max: 10
 ```
 
-![img](/img/linux-synapse/1.png)
+![img](/images/posts/linux-synapse/1.png)
 
 이런 형태로 `homeserver.yaml` 파일이 완성된다.
 
@@ -113,11 +113,11 @@ sudo docker-compose up -d
 
 Nginx Proxy Manager에서 다음과 같이 reverse proxy 및 SSL 설정을 한다.
 
-![img](/img/linux-synapse/2.png)
+![img](/images/posts/linux-synapse/2.png)
 
-![img](/img/linux-synapse/3.png)
+![img](/images/posts/linux-synapse/3.png)
 
-![img](/img/linux-synapse/4.png)
+![img](/images/posts/linux-synapse/4.png)
 
 위 이미지처럼 커스텀 헤더를 추가하여 websocket 설정을 활성화한다.
 

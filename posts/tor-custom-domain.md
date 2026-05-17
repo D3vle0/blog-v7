@@ -5,12 +5,12 @@ draft: false
 categories: ["Server"]
 tags: ["tor", "domain", "mkp224o"]
 cover:
-  image: img/tor-custom-domain/1.jpg
+  image: images/posts/tor-custom-domain/1.jpg
 ShowToc: true
 TocOpen: true
 ---
 
-![img](/img/tor-custom-domain/1.jpg)
+![img](/images/posts/tor-custom-domain/1.jpg)
 
 ## 서문
 
@@ -64,19 +64,19 @@ make
 
 `-d` 옵션에 경로를 지정할 수 있는데 이는 생성된 도메인에 대한 인증서를 저장할 경로를 의미한다.
 
-![img](/img/tor-custom-domain/2.png)
+![img](/images/posts/tor-custom-domain/2.png)
 
 그런데 막상 작업을 해보니 생각보다 오래 걸리지는 않는다. 6글자 bruteforce를 해보았는데 2분만에 도메인 하나가 나왔고, 5분 동안 7개나 나왔다. 역시 m1이다. 마음에 드는 도메인이 있으면 `^C` 로 중단하자.
 
-![img](/img/tor-custom-domain/3.png)
+![img](/images/posts/tor-custom-domain/3.png)
 
 ## 도메인 적용
 
 앞서 mkp224o 디렉토리 안에 res 디렉토리를 만들어서 그곳에 인증서를 저장시키게 했다. res 디렉토리 안에 생성된 도메인 이름으로 디렉토리가 생성되어 있고, 각각의 디렉토리 내부에 해당 도메인의 인증서가 들어있다.
 
-![img](/img/tor-custom-domain/5.png)
+![img](/images/posts/tor-custom-domain/5.png)
 
-![img](/img/tor-custom-domain/4.png)
+![img](/images/posts/tor-custom-domain/4.png)
 
 이제 VPS 서버로 옮겨서 도메인 세팅을 해주자. `scp` 명령으로 로컬에서 서버로 파일들을 전송한다.
 

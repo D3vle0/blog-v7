@@ -5,7 +5,7 @@ draft: false
 categories: ["macOS"]
 tags: ["xampp"]
 cover:
-  image: img/xampp-error/2.png
+  image: images/posts/xampp-error/2.png
 ShowToc: true
 TocOpen: true
 ---
@@ -18,7 +18,7 @@ XAMPP는 크로스 플랫폼 웹 서버 자유 소프트웨어 꾸러미이다. 
 
 [이곳에서](https://www.apachefriends.org/download.html) XAMPP for OS X 8.1.6을 다운받고 실행했는데 서버를 시작할 수 없다는 에러가 발생했다.
 
-![img](/img/xampp-error/1.png)
+![img](/images/posts/xampp-error/1.png)
 
 show details를 눌러보니 이런 에러 메세지가 떴다. 원인은 macOS 11.3으로 업데이트 되면서 개발자가 로컬 환경에서 작업할 수 없는 등 많은 문제가 발생했다고 한다.
 
@@ -44,16 +44,16 @@ $ chmod +x ~/.bitnami/stackman/helpers/hyperkit
 
 application 폴더에 있는 XAMPP를 copy하고 기존의 파일은 휴지통에 넣는다.
 
-![img](/img/xampp-error/2.png)
+![img](/images/posts/xampp-error/2.png)
 
-![img](/img/xampp-error/3.png)
+![img](/images/posts/xampp-error/3.png)
 
 [이곳에서](https://sourceforge.net/projects/xampp/files/XAMPP%20Mac%20OS%20X/7.2.34/xampp-osx-7.2.34-2-installer.dmg/download) XAMPP 7.2.34 버전을 다운받는다.
 
-![img](/img/xampp-error/4.png)
+![img](/images/posts/xampp-error/4.png)
 
-![img](/img/xampp-error/5.png)
+![img](/images/posts/xampp-error/5.png)
 
 제대로 작동한다. 한 가지 주의할 점은 필자는 기존에 MySQL이 설치되어 있는 상태였는데, XAMPP에서 구동되는 MySQL과 충돌을 일으킨다. 기존의 MySQL이 실행중이면 XAMPP의 MySQL이 실행이 안되고, 그 반대도 동일하다.
 
-![img](/img/xampp-error/6.png)
+![img](/images/posts/xampp-error/6.png)

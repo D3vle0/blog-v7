@@ -5,7 +5,7 @@ draft: false
 categories: ["Server"]
 tags: ["fail2ban", "ssh"]
 cover:
-  image: img/linux-login/4.png
+  image: images/posts/linux-login/4.png
 ShowToc: true
 TocOpen: true
 ---
@@ -58,7 +58,7 @@ sshd: ALL
 
 허용되지 않은 IP에서 서버에 접속을 시도하면 에러가 뜬다.
 
-![img](/img/linux-login/1.png)
+![img](/images/posts/linux-login/1.png)
 
 ## fail2ban 설치
 
@@ -73,13 +73,13 @@ sudo systemctl enable fail2ban
 
 fail2ban 서비스를 시작했는데 아래의 에러가 발생했다.
 
-![img](/img/linux-login/2.png)
+![img](/images/posts/linux-login/2.png)
 
 ```bash
 sudo /usr/bin/fail2ban-client -x start
 ```
 
-![img](/img/linux-login/3.png)
+![img](/images/posts/linux-login/3.png)
 
 `Failed during configuration: Have not found any log file for sshd jail` 라고 한다. 이는 sshd jail을 위한 로그 파일이 없어서 생기는 에러다.
 
@@ -87,7 +87,7 @@ sudo /usr/bin/fail2ban-client -x start
 sudo touch /var/log/auth.log
 ```
 
-![img](/img/linux-login/4.png)
+![img](/images/posts/linux-login/4.png)
 
 놀랍게도 잘 작동한다. 구글링을 하다 보니 fail2ban 에러가 발생하는 경우는 이 외에도 다양하게 있는데, 그 중에서 apache2와 충돌을 일으키는 에러도 발생할 수 있는 것을 보았다. 그때는 apache2 웹서버를 끄거나 configuration 파일에서 문제가 될만한 부분을 수정해보자.
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts, Post } from "@/lib/posts";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,10 +16,13 @@ function CompactPostCard({ post }: { post: Post }) {
       <Card className="flex flex-row h-full hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden p-0 gap-0 group">
         {post.metadata.coverImage ? (
           <div className="relative w-1/3 shrink-0 overflow-hidden bg-white dark:bg-zinc-900 border-r">
-            <img
+            <Image
               src={post.metadata.coverImage}
               alt={post.metadata.title}
-              className="object-cover absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
         ) : (
@@ -64,10 +68,13 @@ function LargePostCard({ post }: { post: Post }) {
       <Card className="h-full flex flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group relative p-0 gap-0">
         {post.metadata.coverImage ? (
           <div className="relative w-full aspect-[2/1] overflow-hidden bg-white dark:bg-zinc-900 border-b">
-            <img
+            <Image
               src={post.metadata.coverImage}
               alt={post.metadata.title}
-              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="eager"
             />
           </div>
         ) : (
@@ -167,17 +174,23 @@ export default async function Home() {
         </div>
 
         <div className="container flex flex-col md:flex-row justify-center items-center gap-6 mx-auto px-4">
-          <img
+          <Image
             alt="Spotify Recently Played"
-            loading="lazy"
             src="https://spotify-recently-played-readme.vercel.app/api?user=85o05xl09h5de8ngv9im0txhx&count=3"
+            width={800}
+            height={210}
+            sizes="(max-width: 768px) 100vw, 420px"
             className="h-auto md:h-[210px] w-full md:w-auto object-contain rounded-lg shadow-sm"
-          />
-          <img
-            alt="ETS Counter"
             loading="lazy"
+          />
+          <Image
+            alt="ETS Counter"
             src="https://ets-readme-counter.vercel.app/view?startdate=20250304&branch=army&lang=ko"
+            width={800}
+            height={210}
+            sizes="(max-width: 768px) 100vw, 420px"
             className="h-auto md:h-[210px] w-full md:w-auto object-contain rounded-lg shadow-sm"
+            loading="lazy"
           />
         </div>
       </section>

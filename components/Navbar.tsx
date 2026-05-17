@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import NavbarSearch from "./NavbarSearch";
@@ -10,7 +11,15 @@ export function Navbar() {
       <div className="container relative z-10 flex h-14 max-w-screen-2xl items-center mx-auto px-4 sm:px-8">
         <div className="mr-4 flex items-center gap-6">
           <Link href="/" className="mr-2 flex items-center space-x-2 shrink-0">
-            <img src="/icon.jpg" alt="Logo" className="w-8 h-8 rounded-full object-cover" />
+            <Image
+              src="/icon.jpg"
+              alt="Logo"
+              width={32}
+              height={32}
+              sizes="32px"
+              className="w-8 h-8 rounded-full object-cover"
+              loading="eager"
+            />
             <span className="site-title font-bold inline-block text-xl">Devleo's Blog</span>
           </Link>
           <nav className="flex items-center space-x-4 text-base font-medium">

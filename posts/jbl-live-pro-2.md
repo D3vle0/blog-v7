@@ -5,7 +5,7 @@ draft: false
 categories: ["Music"]
 tags: ["JBL", "earbuds"]
 cover:
-  image: img/jbl-live-pro-2/1.png
+  image: images/posts/jbl-live-pro-2/1.png
 ShowToc: true
 TocOpen: true
 ---
@@ -22,9 +22,9 @@ TocOpen: true
 
 케이스에 이어버드를 넣고 닫은 뒤, 잠시 뒤 열고 기다리면 블루투스를 통해 페어링이 가능하다.
 
-![img](/img/jbl-live-pro-2/1.png)
+![img](/images/posts/jbl-live-pro-2/1.png)
 
-![img](/img/jbl-live-pro-2/2.png)
+![img](/images/posts/jbl-live-pro-2/2.png)
 
 페어링을 하고 착용하면 자동으로 노이즈캔슬링이 켜진다!
 

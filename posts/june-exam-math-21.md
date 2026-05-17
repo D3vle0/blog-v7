@@ -6,7 +6,7 @@ categories: ["Math"]
 tags: ["python", "math"]
 math: true
 cover:
-  image: img/june-exam-math-21/1.png
+  image: images/posts/june-exam-math-21/1.png
 ShowToc: true
 TocOpen: true
 ---
@@ -15,7 +15,7 @@ TocOpen: true
 
 ## 문제
 
-![img](/img/june-exam-math-21/1.png)
+![img](/images/posts/june-exam-math-21/1.png)
 
 자연수 n에 대하여 $4\log_{64}\left(\frac{3}{4n+16}\right)$ 의 값이 정수가 되도록 하는 1000 이하의 모든 $n$의 값의 합을 구하시오.
 
@@ -55,4 +55,4 @@ print(res)
 
 어떤 수 $x$가 정수인지 판별하려면 $x$와 $x$를 정수형 타입으로 바꾼 값이 일치하면 $x$는 정수라고 말할 수 있다.
 
-![img](/img/june-exam-math-21/2.png)
+![img](/images/posts/june-exam-math-21/2.png)

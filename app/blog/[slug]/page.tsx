@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { CalendarIcon, ArrowLeft, Clock } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
@@ -89,10 +90,14 @@ export default async function BlogPostPage({
 
         {post.metadata.coverImage && (
           <div className="my-8 w-full overflow-hidden rounded-xl border border-border/50 shadow-sm">
-            <img
+            <Image
               src={post.metadata.coverImage}
               alt={post.metadata.title}
+              width={1200}
+              height={630}
+              sizes="(max-width: 1024px) 100vw, 768px"
               className="w-full h-auto object-cover max-h-[500px]"
+              loading="eager"
             />
           </div>
         )}

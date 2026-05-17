@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Post } from "@/lib/posts";
 import { Card } from "@/components/ui/card";
 import { CalendarIcon, Clock } from "lucide-react";
@@ -12,10 +13,13 @@ export function PostCard({ post }: { post: Post }) {
       <Card className="h-full flex flex-row sm:flex-col hover:bg-muted/50 transition-colors border-border/50 shadow-sm hover:shadow-md cursor-pointer overflow-hidden group p-0 gap-0">
         {post.metadata.coverImage ? (
           <div className="relative w-1/3 sm:w-full shrink-0 sm:h-52 overflow-hidden bg-white dark:bg-zinc-900 border-r sm:border-r-0 sm:border-b">
-            <img
+            <Image
               src={post.metadata.coverImage}
               alt={post.metadata.title}
-              className="object-cover absolute inset-0 sm:static w-full h-full transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 100vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
         ) : (

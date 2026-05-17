@@ -5,7 +5,7 @@ draft: false
 categories: ["Security"]
 tags: ["suninatas"]
 cover:
-  image: img/suninatas-14/1.png
+  image: images/posts/suninatas-14/1.png
 ShowToc: true
 TocOpen: true
 ---
@@ -17,7 +17,7 @@ TocOpen: true
 
 ## 문제 풀이
 
-![img](/img/suninatas-14/1.png)
+![img](/images/posts/suninatas-14/1.png)
 
 압축을 풀면 `passwd`, `shadow` 파일이 나온다. 이 파일은 실제 리눅스 시스템에서 각각 `/etc/passwd`, `/etc/shadow` 에 해당하고, `passwd` 에는 사용자 계정 정보가, `shadow` 에는 해당 사용자의 비밀번호를 암호화한 값이 저장되어 있다.  
 
@@ -101,6 +101,6 @@ suninatas:$6$QlRlqGhj$BZoS9PuMMRHZZXz1Gde99W01u3kD9nP/zYtl8O2dsshdnwsJT/1lZXsLar
 
 리눅스 패스워드 암호화도 hash에 해당하기 때문에 john the ripper 툴로 크래킹하겠다.
 
-![img](/img/suninatas-14/2.png)
+![img](/images/posts/suninatas-14/2.png)
 
 > FLAG: `iloveu1`

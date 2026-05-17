@@ -49,7 +49,7 @@ SELECT * FROM pages;
 ```sql {linenos=true}
 1||index|<div class="row">
     <div class="col-md-6 offset-md-3">
-        <img class="w-100 mx-auto d-block" style="max-width: 500px;padding: 50px;padding-top: 14vh;" src="/themes/core/static/img/logo.png?d=1d53abea" />
+        <img class="w-100 mx-auto d-block" style="max-width: 500px;padding: 50px;padding-top: 14vh;" src="/themes/core/static/images/posts/logo.png?d=1d53abea" />
         <h3 class="text-center">
             <p>A cool CTF platform from <a href="https://ctfd.io">ctfd.io</a></p>
             <p>Follow us on social media:</p>
