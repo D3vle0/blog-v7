@@ -113,11 +113,10 @@ export default function NavbarSearch() {
 
       {/* 2. Search Input Container */}
       <div
-        className={`${
-          isMobileSearchOpen
-            ? "fixed inset-x-0 top-0 h-14 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 flex items-center gap-3 z-50 border-b border-border/40 animate-in fade-in slide-in-from-top-1 duration-150"
-            : "hidden sm:relative sm:flex sm:items-center sm:w-full sm:max-w-[280px]"
-        }`}
+        className={`${isMobileSearchOpen
+          ? "fixed inset-x-0 top-0 h-14 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 flex items-center gap-3 z-50 border-b border-border/40 animate-in fade-in slide-in-from-top-1 duration-150"
+          : "hidden sm:relative sm:flex sm:items-center sm:w-full sm:max-w-[280px]"
+          }`}
       >
         <div className="relative flex-1 flex items-center">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground transition-colors group-focus-within:text-foreground" />
@@ -128,9 +127,12 @@ export default function NavbarSearch() {
             value={query}
             onFocus={handleFocus}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full rounded-full border border-border/60 bg-muted/40 py-1.5 pl-9 pr-4 text-sm outline-none transition-all placeholder:text-muted-foreground/75 focus:border-foreground/30 focus:bg-background focus:ring-1 focus:ring-foreground/10"
+            className="peer w-full rounded-full border border-border/60 bg-muted/40 py-1.5 pl-9 pr-14 text-sm outline-none transition-all placeholder:text-muted-foreground/75 focus:border-foreground/30 focus:bg-background focus:ring-1 focus:ring-foreground/10"
           />
-
+          <kbd className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex h-6 select-none items-center gap-1 rounded-full border border-border/80 bg-muted/80 px-2 font-mono text-[11px] font-semibold text-muted-foreground/90 shadow-sm opacity-100 transition-opacity duration-150 peer-focus:opacity-0">
+            <span className="text-[17px] font-sans">⌘</span>
+            <span className="text-[14px] font-sans font-medium">K</span>
+          </kbd>
         </div>
 
         {/* Cancel button to close search on mobile */}
