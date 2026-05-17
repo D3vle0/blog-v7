@@ -30,6 +30,11 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet" />
+      </head>
       <body suppressHydrationWarning className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
         <ThemeProvider
           attribute="class"

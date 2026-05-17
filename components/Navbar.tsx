@@ -11,7 +11,7 @@ export function Navbar() {
         <div className="mr-4 flex items-center gap-6">
           <Link href="/" className="mr-2 flex items-center space-x-2 shrink-0">
             <img src="/icon.jpg" alt="Logo" className="w-8 h-8 rounded-full object-cover" />
-            <span className="font-bold inline-block text-xl">Devleo's Blog</span>
+            <span className="site-title font-bold inline-block text-xl">Devleo's Blog</span>
           </Link>
           <nav className="flex items-center space-x-4 text-base font-medium">
             <Link href="/" className="transition-colors hover:text-foreground/80 text-foreground/60">Home</Link>
