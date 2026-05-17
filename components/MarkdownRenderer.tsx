@@ -60,9 +60,15 @@ function CustomBlockquote({ children, ...props }: any) {
             }
           }
 
-          const hasImage = newPChildren.some(
-            (child) => React.isValidElement(child) && (child as any).type === 'img'
-          );
+          const hasImage = newPChildren.some((child) => {
+            if (!React.isValidElement(child)) return false;
+            const type = (child as any).type;
+            return (
+              type === "img" ||
+              type === Zoom ||
+              (typeof type === "function" && (type.name === "Zoom" || type.displayName === "Zoom"))
+            );
+          });
 
           const ElementType = hasImage ? "div" : "p";
           const newFirstElement = <ElementType key={firstElement.key || "callout-p"} className={(firstElement.props && firstElement.props.className) || ""}>{newPChildren}</ElementType>;
@@ -188,13 +194,23 @@ export function MarkdownRenderer({ content }: { content: string }) {
         blockquote: CustomBlockquote,
         pre: PreBlock,
         code: CodeBlock,
-        p({ children }: any) {
-          // Check if children contain an image
-          const hasImage = React.Children.toArray(children).some(
-            (child) => React.isValidElement(child) && (child as any).type === 'img'
+        p({ node, children }: any) {
+          // Check if children contain an image via AST node or React children matching Zoom/img
+          const hasImageInAST = node?.children?.some(
+            (child: any) => child.type === "element" && child.tagName === "img"
           );
 
-          if (hasImage) {
+          const hasImageInChildren = React.Children.toArray(children).some((child) => {
+            if (!React.isValidElement(child)) return false;
+            const type = (child as any).type;
+            return (
+              type === "img" ||
+              type === Zoom ||
+              (typeof type === "function" && (type.name === "Zoom" || type.displayName === "Zoom"))
+            );
+          });
+
+          if (hasImageInAST || hasImageInChildren) {
             return <div className="my-6">{children}</div>;
           }
 
