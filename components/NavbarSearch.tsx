@@ -90,7 +90,7 @@ export default function NavbarSearch() {
         <input
           ref={inputRef}
           type="search"
-          placeholder="검색... (Cmd+K)"
+          placeholder="검색 (Cmd+K)"
           value={query}
           onFocus={handleFocus}
           onChange={(e) => setQuery(e.target.value)}
@@ -108,7 +108,7 @@ export default function NavbarSearch() {
 
       {/* Floating Overlay Dropdown */}
       {isOpen && (query.trim() || loading) && (
-        <div 
+        <div
           className="fixed left-0 right-0 top-[56px] w-full rounded-none rounded-b-2xl border-b border-x-0 border-t-0 border-border/80 md:absolute md:left-auto md:right-0 md:top-[44px] md:mt-0 md:w-[480px] lg:w-[560px] md:rounded-2xl md:border md:border-border/80 bg-background/60 backdrop-blur-xl shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
         >
           <div className="p-3 border-b border-border/40 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground font-medium">

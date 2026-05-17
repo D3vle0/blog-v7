@@ -13,6 +13,7 @@ export interface PostMetadata {
   tags?: string[];
   description?: string;
   coverImage?: string;
+  readingTime?: number;
 }
 
 export interface Post {
