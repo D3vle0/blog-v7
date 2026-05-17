@@ -108,7 +108,7 @@ export default function NavbarSearch() {
 
       {/* Floating Overlay Dropdown */}
       {isOpen && (query.trim() || loading) && (
-        <div className="absolute right-0 top-full mt-2 w-[320px] sm:w-[480px] md:w-[560px] bg-background/95 backdrop-blur-md border border-border/80 rounded-2xl shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="fixed left-4 right-4 top-[58px] md:absolute md:left-auto md:right-0 md:top-full md:mt-3 w-auto md:w-[480px] lg:w-[560px] bg-background/95 backdrop-blur-md border border-border/80 rounded-2xl shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="p-3 border-b border-border/40 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground font-medium">
             <span>검색 결과</span>
             {loading ? (
