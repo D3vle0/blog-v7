@@ -14,7 +14,7 @@ export function Navbar() {
             <span className="site-title font-bold inline-block text-xl">Devleo's Blog</span>
           </Link>
           <nav className="flex items-center space-x-4 text-base font-medium">
-            <Link href="/" className="transition-colors hover:text-foreground/80 text-foreground/60">Home</Link>
+            <Link href="/" className="hidden sm:inline-block transition-colors hover:text-foreground/80 text-foreground/60">Home</Link>
             <Link href="/tags" className="transition-colors hover:text-foreground/80 text-foreground/60">Tags</Link>
           </nav>
         </div>

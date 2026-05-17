@@ -12,6 +12,7 @@ export default function NavbarSearch() {
   const [loading, setLoading] = useState(false);
   const [hasFetched, setHasFetched] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -41,6 +42,7 @@ export default function NavbarSearch() {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        setIsMobileSearchOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -52,11 +54,13 @@ export default function NavbarSearch() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setIsOpen(false);
+        setIsMobileSearchOpen(false);
         inputRef.current?.blur();
       }
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        inputRef.current?.focus();
+        setIsMobileSearchOpen(true);
+        setTimeout(() => inputRef.current?.focus(), 50);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -79,29 +83,68 @@ export default function NavbarSearch() {
 
   const handleResultClick = (slug: string) => {
     setIsOpen(false);
+    setIsMobileSearchOpen(false);
     setQuery("");
     router.push(`/blog/${slug}`);
   };
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-[200px] sm:max-w-[280px]">
-      <div className="relative flex items-center">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground transition-colors group-focus-within:text-foreground" />
-        <input
-          ref={inputRef}
-          type="search"
-          placeholder="검색 (Cmd+K)"
-          value={query}
-          onFocus={handleFocus}
-          onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-full border border-border/60 bg-muted/40 py-1.5 pl-9 pr-8 text-sm outline-none transition-all placeholder:text-muted-foreground/75 focus:border-foreground/30 focus:bg-background focus:ring-1 focus:ring-foreground/10"
-        />
-        {query && (
+    <div ref={containerRef} className="relative flex items-center">
+      {/* 1. Mobile Search Icon Button (visible only on mobile, when search is not open) */}
+      {!isMobileSearchOpen && (
+        <button
+          onClick={() => {
+            setIsMobileSearchOpen(true);
+            handleFocus();
+            setTimeout(() => inputRef.current?.focus(), 50);
+          }}
+          className="flex sm:hidden p-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-full transition-colors mr-1"
+          title="Search"
+        >
+          <Search className="h-[1.2rem] w-[1.2rem]" />
+        </button>
+      )}
+
+      {/* 2. Search Input Container */}
+      <div
+        className={`${
+          isMobileSearchOpen
+            ? "fixed inset-x-0 top-0 h-14 bg-background px-4 flex items-center gap-3 z-50 border-b animate-in fade-in slide-in-from-top-1 duration-150"
+            : "hidden sm:relative sm:flex sm:items-center sm:w-full sm:max-w-[280px]"
+        }`}
+      >
+        <div className="relative flex-1 flex items-center">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground transition-colors group-focus-within:text-foreground" />
+          <input
+            ref={inputRef}
+            type="search"
+            placeholder="검색어 입력..."
+            value={query}
+            onFocus={handleFocus}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full rounded-full border border-border/60 bg-muted/40 py-1.5 pl-9 pr-8 text-sm outline-none transition-all placeholder:text-muted-foreground/75 focus:border-foreground/30 focus:bg-background focus:ring-1 focus:ring-foreground/10"
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
+
+        {/* Cancel button to close search on mobile */}
+        {isMobileSearchOpen && (
           <button
-            onClick={() => setQuery("")}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+            onClick={() => {
+              setIsMobileSearchOpen(false);
+              setIsOpen(false);
+              setQuery("");
+            }}
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-1"
           >
-            <X className="h-3.5 w-3.5" />
+            취소
           </button>
         )}
       </div>
