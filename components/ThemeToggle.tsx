@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, Monitor } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
@@ -28,13 +28,21 @@ export function ThemeToggle() {
       title={`Current theme: ${theme} (Click to cycle)`}
     >
       {theme === "light" && <Sun className="h-[1.2rem] w-[1.2rem]" />}
-      {theme === "dark" && <Moon className="h-[1.2rem] w-[1.2rem]" />}
-      {theme === "system" && (
-        <div className="relative flex items-center justify-center">
-          <Sun className="h-[1.2rem] w-[1.2rem] opacity-50" />
-          <Moon className="absolute h-[0.8rem] w-[0.8rem] translate-x-1 translate-y-1" />
-        </div>
+      {theme === "dark" && (
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
       )}
+      {theme === "system" && <Monitor className="h-[1.2rem] w-[1.2rem]" />}
       <span className="sr-only">Toggle theme</span>
     </Button>
   )
