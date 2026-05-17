@@ -5,8 +5,9 @@ import NavbarSearch from "./NavbarSearch";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center mx-auto px-4 sm:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40">
+      <div className="absolute inset-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 -z-10"></div>
+      <div className="container relative z-10 flex h-14 max-w-screen-2xl items-center mx-auto px-4 sm:px-8">
         <div className="mr-4 flex items-center gap-6">
           <Link href="/" className="mr-2 flex items-center space-x-2 shrink-0">
             <img src="/icon.jpg" alt="Logo" className="w-8 h-8 rounded-full object-cover" />
