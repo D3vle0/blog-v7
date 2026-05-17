@@ -22,7 +22,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  
+
   let post;
   try {
     post = getPostBySlug(slug);
@@ -41,7 +41,7 @@ export default async function BlogPostPage({
               Back to Blog
             </Button>
           </Link>
-          
+
           <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
             <div className="flex items-center gap-1">
               <CalendarIcon className="w-4 h-4" />
@@ -58,22 +58,22 @@ export default async function BlogPostPage({
               <span>{post.metadata.readingTime || Math.ceil(post.content.split(/\s+/).length / 200)}분</span>
             </div>
           </div>
-          
+
           <h1 className="inline-block font-heading text-4xl leading-tight lg:text-5xl font-bold">
             {post.metadata.title}
           </h1>
-          
+
           <div className="flex gap-2.5 flex-wrap pt-3">
             {post.metadata.categories?.map((cat) => (
               <Link key={cat} href={`/?category=${encodeURIComponent(cat)}#category-filter-section`}>
-                <Badge variant="secondary" className="text-sm px-3.5 py-1.5 rounded-full font-medium cursor-pointer shadow-sm border border-transparent hover:bg-secondary/80 hover:scale-105 active:scale-98 transition-all duration-200">
+                <Badge variant="secondary" className="text-sm px-5 py-2 h-auto rounded-full font-medium cursor-pointer shadow-sm border border-transparent hover:bg-secondary/80 hover:scale-105 active:scale-98 transition-all duration-200">
                   {cat}
                 </Badge>
               </Link>
             ))}
             {post.metadata.tags?.map((tag) => (
               <Link key={tag} href={`/tags?tag=${encodeURIComponent(tag)}`}>
-                <Badge variant="outline" className="text-sm px-3.5 py-1.5 rounded-full font-medium cursor-pointer shadow-sm border border-border/60 hover:bg-muted hover:scale-105 active:scale-98 transition-all duration-200">
+                <Badge variant="outline" className="text-sm px-5 py-2 h-auto rounded-full font-medium cursor-pointer shadow-sm border border-border/60 hover:bg-muted hover:scale-105 active:scale-98 transition-all duration-200">
                   #{tag}
                 </Badge>
               </Link>
@@ -92,14 +92,14 @@ export default async function BlogPostPage({
         )}
 
         <Separator className="my-8" />
-        
+
         <div className="relative">
           <div className="prose prose-zinc dark:prose-invert max-w-none w-full
                           prose-headings:font-heading prose-headings:font-bold
                           prose-a:text-primary prose-a:underline-offset-4 hover:prose-a:text-primary/80">
             <MarkdownRenderer content={post.content} />
           </div>
-          
+
           {/* TOC Sidebar placed outside the centered container */}
           <aside className="hidden xl:block absolute left-full top-0 ml-12 w-[250px] h-full">
             <div className="sticky top-24">
