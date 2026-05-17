@@ -1,4 +1,4 @@
-import { getPostBySlug, getPostSlugs } from "@/lib/posts";
+import { getPostBySlug, getPostSlugs, getAllPosts } from "@/lib/posts";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { CalendarIcon, ArrowLeft, Clock } from "lucide-react";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";
+import GiscusComments from "@/components/GiscusComments";
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
@@ -29,6 +30,11 @@ export default async function BlogPostPage({
   } catch (e) {
     notFound();
   }
+
+  const allPosts = getAllPosts();
+  const currentIndex = allPosts.findIndex((p) => p.metadata.slug === slug);
+  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
   return (
     <article className="container py-12 relative mx-auto">
@@ -103,10 +109,50 @@ export default async function BlogPostPage({
           {/* TOC Sidebar placed outside the centered container */}
           <aside className="hidden xl:block absolute left-full top-0 ml-12 w-[250px] h-full">
             <div className="sticky top-24">
-              <TableOfContents content={post.content} />
+               <TableOfContents content={post.content} />
             </div>
           </aside>
         </div>
+
+        {/* Navigation for Prev/Next Post */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-12 pt-8 border-t border-border/60">
+          {prevPost ? (
+            <Link
+              href={`/blog/${prevPost.metadata.slug}`}
+              className="group flex flex-col items-start gap-2 p-4 rounded-xl border border-border/40 bg-card hover:bg-muted/30 transition-all duration-200"
+            >
+              <span className="text-xs text-muted-foreground font-medium flex items-center gap-1">
+                <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+                이전 게시물
+              </span>
+              <span className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
+                {prevPost.metadata.title}
+              </span>
+            </Link>
+          ) : (
+            <div className="hidden sm:block" />
+          )}
+
+          {nextPost ? (
+            <Link
+              href={`/blog/${nextPost.metadata.slug}`}
+              className="group flex flex-col items-end gap-2 p-4 rounded-xl border border-border/40 bg-card hover:bg-muted/30 transition-all duration-200 text-right"
+            >
+              <span className="text-xs text-muted-foreground font-medium flex items-center gap-1 flex-row-reverse">
+                <ArrowLeft className="w-3.5 h-3.5 rotate-180 group-hover:translate-x-1 transition-transform" />
+                다음 게시물
+              </span>
+              <span className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
+                {nextPost.metadata.title}
+              </span>
+            </Link>
+          ) : (
+            <div className="hidden sm:block" />
+          )}
+        </div>
+
+        {/* Giscus Comments Section */}
+        <GiscusComments />
       </div>
     </article>
   );
