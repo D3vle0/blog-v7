@@ -115,7 +115,7 @@ export default function NavbarSearch() {
       <div
         className={`${
           isMobileSearchOpen
-            ? "fixed inset-x-0 top-0 h-14 bg-background px-4 flex items-center gap-3 z-50 border-b animate-in fade-in slide-in-from-top-1 duration-150"
+            ? "fixed inset-x-0 top-0 h-14 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 flex items-center gap-3 z-50 border-b border-border/40 animate-in fade-in slide-in-from-top-1 duration-150"
             : "hidden sm:relative sm:flex sm:items-center sm:w-full sm:max-w-[280px]"
         }`}
       >
