@@ -78,7 +78,7 @@ export default function TagFilter({ posts }: { posts: Post[] }) {
               <button
                 key={tag}
                 onClick={() => handleTagSelect(tag)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all border ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all border ${
                   isSelected
                     ? "bg-foreground text-background border-foreground shadow-sm scale-102"
                     : "bg-muted/30 text-foreground/80 border-border/60 hover:bg-muted/70 hover:text-foreground hover:border-border"

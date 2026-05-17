@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import { ScrollProgressBar } from "./ScrollProgressBar";
-import { Search } from "lucide-react";
+import NavbarSearch from "./NavbarSearch";
 
 export function Navbar() {
   return (
@@ -18,15 +18,7 @@ export function Navbar() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <form action="/search" method="GET" className="relative w-full max-w-[160px] sm:max-w-[220px]">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <input
-              type="search"
-              name="q"
-              placeholder="검색..."
-              className="w-full rounded-full border border-border/50 bg-muted/40 py-1.5 pl-9 pr-4 text-sm outline-none transition-all placeholder:text-muted-foreground/75 focus:border-foreground/40 focus:bg-background focus:ring-1 focus:ring-foreground/20"
-            />
-          </form>
+          <NavbarSearch />
           <nav className="flex items-center space-x-2">
             <ThemeToggle />
           </nav>
