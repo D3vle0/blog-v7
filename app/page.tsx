@@ -112,7 +112,7 @@ export default async function Home() {
     <div className="flex flex-col gap-12">
       <section className="space-y-10 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-16 animate-in fade-in slide-in-from-bottom-4 duration-1000">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center mx-auto">
-          <h1 className="site-title font-heading text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+          <h1 className="site-title font-heading text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/45 pb-2">
             Devleo's Blog
           </h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
