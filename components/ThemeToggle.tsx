@@ -28,11 +28,11 @@ export function ThemeToggle() {
       className="text-muted-foreground hover:text-foreground"
       title={`Current theme: ${theme} (Click to cycle)`}
     >
-      {theme === "light" && <Sun className="h-[1.2rem] w-[1.2rem]" />}
+      {theme === "light" && <Sun className="h-[22px] w-[22px]" />}
       {theme === "dark" && (
         <svg
-          width="20"
-          height="20"
+          width="22"
+          height="22"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -43,7 +43,7 @@ export function ThemeToggle() {
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       )}
-      {theme === "system" && <Monitor className="h-[1.2rem] w-[1.2rem]" />}
+      {theme === "system" && <Monitor className="h-[22px] w-[22px]" />}
       <span className="sr-only">Toggle theme</span>
     </Button>
   )

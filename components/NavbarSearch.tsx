@@ -60,7 +60,10 @@ export default function NavbarSearch() {
       }
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        setIsMobileSearchOpen(true);
+        const isMobile = window.innerWidth < 640;
+        if (isMobile) {
+          setIsMobileSearchOpen(true);
+        }
         setTimeout(() => inputRef.current?.focus(), 50);
       }
     };
@@ -104,7 +107,7 @@ export default function NavbarSearch() {
           className="flex sm:hidden text-muted-foreground hover:text-foreground mr-1"
           title="Search"
         >
-          <Search className="h-[1.2rem] w-[1.2rem]" />
+          <Search className="h-[22px] w-[22px]" />
         </Button>
       )}
 
@@ -127,14 +130,7 @@ export default function NavbarSearch() {
             onChange={(e) => setQuery(e.target.value)}
             className="w-full rounded-full border border-border/60 bg-muted/40 py-1.5 pl-9 pr-8 text-sm outline-none transition-all placeholder:text-muted-foreground/75 focus:border-foreground/30 focus:bg-background focus:ring-1 focus:ring-foreground/10"
           />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <X className="h-3.5 w-3.5" />
-            </button>
-          )}
+
         </div>
 
         {/* Cancel button to close search on mobile */}
