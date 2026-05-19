@@ -1,6 +1,7 @@
 ---
 title: "CTFd Remove Default Banner"
 date: 2021-10-31T14:30:23+09:00
+lastmod: 2026-05-19T22:28:47+09:00 
 draft: false
 categories: ["Security"]
 tags: ["ctfd"]
@@ -29,8 +30,6 @@ grep -r 'to login and setup your CTF' .
 ```
 
 "to login and setup your CTF" 라는 문자열이 포함된 파일을 검색한다.
-
-![스크린샷 유실됨](#)
 
 `./CTFd/views.py` 의 index 변수를 수정해도 없어지지 않았다.  
 바로 아래에 `./CTFd/ctfd.db` 파일에도 해당 문자열이 있다는데 sqlite3를 이용해 열어보자.
@@ -92,8 +91,6 @@ UPDATE pages SET content="aaaaa" WHERE id=1;
 ```
 
 다시 CTFd 서버를 켜면...
-
-![스크린샷 유실됨](#)
 
 기본 banner 가 사라졌다!
 

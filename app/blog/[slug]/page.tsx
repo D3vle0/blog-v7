@@ -49,7 +49,7 @@ export default async function BlogPostPage({
             </Button>
           </Link>
 
-          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
             <div className="flex items-center gap-1">
               <CalendarIcon className="w-4 h-4" />
               <time dateTime={post.metadata.date}>
@@ -59,6 +59,15 @@ export default async function BlogPostPage({
                   day: "numeric",
                 })}
               </time>
+              {post.metadata.lastmod && (
+                <span className="text-xs text-muted-foreground/75 font-normal ml-1">
+                  (수정: {new Date(post.metadata.lastmod).toLocaleDateString("ko-KR", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })})
+                </span>
+              )}
             </div>
             <div className="flex items-center gap-1">
               <Clock className="w-4 h-4" />

@@ -8,6 +8,7 @@ export interface PostMetadata {
   slug: string;
   title: string;
   date: string;
+  lastmod?: string;
   draft?: boolean;
   categories?: string[];
   tags?: string[];
@@ -39,12 +40,22 @@ export function getPostBySlug(slug: string): Post {
     coverImage = `/${coverImage}`;
   }
 
+  let lastmod = data.lastmod || data.lastMod || data.updated || undefined;
+  if (lastmod) {
+    try {
+      lastmod = new Date(lastmod).toISOString();
+    } catch (e) {
+      lastmod = undefined;
+    }
+  }
+
   return {
     metadata: {
       ...data,
       slug: realSlug,
       title: data.title || realSlug,
       date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
+      lastmod,
       draft: data.draft || false,
       categories: data.categories || [],
       tags: data.tags || [],
