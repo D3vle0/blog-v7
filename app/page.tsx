@@ -32,16 +32,16 @@ function CompactPostCard({ post }: { post: Post }) {
         )}
         <div className="p-3 py-2 flex flex-col flex-1">
           <div className="flex justify-between items-start mb-1">
-            <span className="text-sm font-medium text-pink-500">
+            <span className="text-xs sm:text-sm font-medium text-pink-500">
               {post.metadata.categories?.[0] || 'Uncategorized'}
             </span>
           </div>
-          <h3 className="font-bold text-lg leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-base sm:text-lg leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
-          <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-1">
+          <div className="flex items-center justify-between text-xs sm:text-sm text-muted-foreground mt-auto pt-1">
             <div className="flex items-center">
-              <CalendarIcon className="mr-1 h-3.5 w-3.5" />
+              <CalendarIcon className="mr-1 h-3 w-3 sm:h-3.5 sm:w-3.5" />
               {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
                 year: "numeric",
                 month: "long",
@@ -49,7 +49,7 @@ function CompactPostCard({ post }: { post: Post }) {
               })}
             </div>
             <div className="flex items-center">
-              <Clock className="mr-1 h-3.5 w-3.5" />
+              <Clock className="mr-1 h-3 w-3 sm:h-3.5 sm:w-3.5" />
               {readingTime}분
             </div>
           </div>
