@@ -9,17 +9,19 @@ export function BackButton() {
 
   const handleBack = () => {
     const fallbackUrl = sessionStorage.getItem("lastListUrl") || "/";
+    const prevPath = sessionStorage.getItem("prevPath") || "";
     
-    // If the referrer contains the current host and is not another blog post,
-    // we can safely use router.back() to preserve scroll position.
-    // Otherwise, we navigate to the fallbackUrl to maintain queries.
-    if (
-      window.history.length > 1 &&
-      document.referrer.includes(window.location.host) &&
-      !document.referrer.includes("/blog/")
-    ) {
+    if (prevPath.startsWith("/blog/")) {
+      // Immediate previous page was another blog post.
+      // Using router.back() would trap the user in a loop between posts.
+      // In this case, we bypass the post history and jump directly to the last list page.
+      router.push(fallbackUrl);
+    } else if (prevPath) {
+      // Previous page was within our app and NOT a post (e.g., list page or tags).
+      // We safely go back in browser history to perfectly preserve scroll position.
       router.back();
     } else {
+      // Direct load (new tab/external link). No internal history exists.
       router.push(fallbackUrl);
     }
   };

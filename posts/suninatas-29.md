@@ -1,6 +1,7 @@
 ---
-title: "SuNiNaTaS 32 Solution"
+title: "SuNiNaTaS 29 Solution"
 date: 2022-01-25T22:16:04+09:00
+lastmod: 2026-05-19T23:40:02+09:00
 draft: false
 categories: ["Security"]
 tags: ["suninatas"]
