@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
+import { ListTracker } from "@/components/ListTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
+          <ListTracker />
           <main className="flex-1 w-full max-w-screen-xl mx-auto px-4 sm:px-8 py-8 md:py-12">
             {children}
           </main>

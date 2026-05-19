@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";
 import GiscusComments from "@/components/GiscusComments";
+import { BackButton } from "@/components/BackButton";
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
@@ -42,12 +43,7 @@ export default async function BlogPostPage({
       {/* Centered content wrapper */}
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
-          <Link href="/blog">
-            <Button variant="ghost" className="mb-4 -ml-4 text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
-            </Button>
-          </Link>
+          <BackButton />
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
             <div className="flex items-center gap-1">
