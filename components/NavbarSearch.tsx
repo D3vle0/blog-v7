@@ -105,7 +105,7 @@ export default function NavbarSearch() {
             handleFocus();
             setTimeout(() => inputRef.current?.focus(), 50);
           }}
-          className="flex sm:hidden text-muted-foreground hover:text-foreground mr-1"
+          className="flex sm:hidden text-muted-foreground hover:text-foreground"
           title="Search"
         >
           <Search className="h-[22px] w-[22px]" />

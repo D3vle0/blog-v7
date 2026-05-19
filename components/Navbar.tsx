@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Tag } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { ScrollProgressBar } from "./ScrollProgressBar";
 import NavbarSearch from "./NavbarSearch";
+import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   return (
@@ -24,14 +26,25 @@ export function Navbar() {
           </Link>
           <nav className="flex items-center space-x-4 text-base font-medium">
             <Link href="/" className="hidden sm:inline-block transition-colors hover:text-foreground/80 text-foreground/60">Home</Link>
-            <Link href="/tags" className="transition-colors hover:text-foreground/80 text-foreground/60">Tags</Link>
+            <Link href="/tags" className="hidden sm:inline-block transition-colors hover:text-foreground/80 text-foreground/60">Tags</Link>
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <NavbarSearch />
-          <nav className="flex items-center space-x-2">
+        <div className="flex flex-1 items-center justify-end">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="sm:hidden text-muted-foreground hover:text-foreground"
+              title="Tags"
+            >
+              <Link href="/tags" aria-label="Tags">
+                <Tag className="h-[22px] w-[22px]" />
+              </Link>
+            </Button>
+            <NavbarSearch />
             <ThemeToggle />
-          </nav>
+          </div>
         </div>
       </div>
       <ScrollProgressBar />
