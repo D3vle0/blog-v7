@@ -24,19 +24,19 @@ export function PostCard({ post }: { post: Post }) {
           </div>
         ) : (
           <div className="relative w-1/3 sm:w-full shrink-0 sm:h-52 overflow-hidden bg-muted border-r sm:border-r-0 sm:border-b flex items-center justify-center">
-            <span className="text-muted-foreground text-sm sm:text-xl font-medium absolute inset-0 sm:static flex items-center justify-center">Devleo's Blog</span>
+            <span className="text-muted-foreground text-xs sm:text-xl font-medium absolute inset-0 sm:static flex items-center justify-center">Devleo's Blog</span>
           </div>
         )}
         <div className="p-3.5 flex flex-col flex-1">
-          <span className="text-sm font-medium text-pink-500 mb-1.5">
+          <span className="text-xs sm:text-sm font-medium text-pink-500 mb-1.5">
             {post.metadata.categories?.[0] || 'Uncategorized'}
           </span>
-          <h3 className="font-bold text-lg leading-tight line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-base sm:text-lg leading-tight line-clamp-2 mb-1.5 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
-          <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto pt-3 border-t border-border/30">
+          <div className="flex items-center justify-between text-xs sm:text-sm text-muted-foreground mt-auto pt-3 border-t border-border/30">
             <div className="flex items-center">
-              <CalendarIcon className="mr-1.5 h-3.5 w-3.5" />
+              <CalendarIcon className="mr-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5" />
               {new Date(post.metadata.date).toLocaleDateString("ko-KR", {
                 year: "numeric",
                 month: "long",
@@ -44,7 +44,7 @@ export function PostCard({ post }: { post: Post }) {
               })}
             </div>
             <div className="flex items-center">
-              <Clock className="mr-1.5 h-3.5 w-3.5" />
+              <Clock className="mr-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5" />
               {readingTime}분
             </div>
           </div>
