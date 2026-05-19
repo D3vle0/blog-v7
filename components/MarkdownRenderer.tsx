@@ -25,13 +25,20 @@ const DEFAULT_IMAGE_HEIGHT = 675;
 
 const normalizeImageSrc = (src?: string) => {
   if (!src) return "";
+  if (src === "#") return "#";
+  if (src.startsWith("http://") || src.startsWith("https://") || src.startsWith("//")) {
+    return src;
+  }
   if (src.startsWith("/img/")) {
     return src.replace("/img/", "/images/posts/");
   }
   if (src.startsWith("img/")) {
     return `/${src.replace("img/", "images/posts/")}`;
   }
-  return src;
+  if (src.startsWith("/")) {
+    return src;
+  }
+  return `/${src}`;
 };
 
 const parseDimension = (value: unknown, fallback: number) => {
@@ -244,6 +251,11 @@ export function MarkdownRenderer({ content }: { content: string }) {
           const normalizedSrc = normalizeImageSrc(src);
           if (!normalizedSrc) return null;
 
+          const isInvalidForNextImage =
+            normalizedSrc === "#" ||
+            normalizedSrc.trim() === "" ||
+            (!normalizedSrc.startsWith("/") && !normalizedSrc.startsWith("http"));
+
           const { node: _node, ...rest } = props;
           void _node;
           const imageWidth = parseDimension(width, DEFAULT_IMAGE_WIDTH);
@@ -254,6 +266,23 @@ export function MarkdownRenderer({ content }: { content: string }) {
           ]
             .filter(Boolean)
             .join(" ");
+
+          if (isInvalidForNextImage) {
+            return (
+              <Zoom>
+                <img
+                  {...rest}
+                  src={normalizedSrc}
+                  alt={alt ?? ""}
+                  width={imageWidth}
+                  height={imageHeight}
+                  className={mergedClassName}
+                  style={{ width: "100%", height: "auto" }}
+                  loading="lazy"
+                />
+              </Zoom>
+            );
+          }
 
           return (
             <Zoom>
