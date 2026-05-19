@@ -4,6 +4,8 @@ date: 2021-10-31T14:30:23+09:00
 lastmod: 2026-05-19T22:28:47+09:00 
 draft: false
 categories: ["Security"]
+cover:
+  image: images/posts/ctfd-remove-default-banner/1.png
 tags: ["ctfd"]
 ShowToc: true
 TocOpen: true

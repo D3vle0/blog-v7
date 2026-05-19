@@ -1,11 +1,13 @@
 ---
 title: "Arch Linux 홈서버 셋업"
 date: 2022-01-22T22:54:03+09:00
+lastmod: 2026-05-19T23:55:45+09:00 
 draft: false
 categories: ["Server"]
 tags: ["arch"]
 cover:
-  image: https://firebasestorage.googleapis.com/v0/b/storage-f1f46.appspot.com/o/homeserver-02.png?alt=media&token=9c5d2559-eace-44a7-96a7-e3fcaeb3e47b
+  image: images/posts/homeserver/1.webp
+  alt: "Arch Linux 홈서버 셋업"
 ShowToc: true
 TocOpen: true
 ---
@@ -45,15 +47,9 @@ USB 부팅을 이용해서 Arch Linux 설치 미디어를 부팅시키고 CLI로
 
 공유기 설정에서 집 공인 IP가 유동으로 되어있긴 하나 한 번도 변한 적이 없어서 그대로 두었고, Arch Linux가 설치된 노트북의 사설 IP를 고정시켰다.
 
-![img](https://firebasestorage.googleapis.com/v0/b/storage-f1f46.appspot.com/o/homeserver-01.png?alt=media&token=5d2f9795-9626-47f0-92bc-7a14ab7677d9)
-
 ### 도메인 할당
 
 유플러스 공유기에는 불편한 단점이 있는데, 네트워크 밖의 기기는 당연히 공인 IP를 이용하여 홈서버에 접속 하는 것이 맞지만 **네트워크 내부에 있는 기기가 홈서버에 접속할 때는 반드시 사설 IP를 이용해야 한다.** 공인 IP로 접속이 불가능하다. 그래서 나는 공인 IP와 사설 IP 각각 도메인을 할당시켜 사용하고 있다. 해당 IP를 가리키는 A Record 두 개를 만들기만 하면 된다.
-
-### 포트포워딩
-
-![img](https://firebasestorage.googleapis.com/v0/b/storage-f1f46.appspot.com/o/homeserver-02.png?alt=media&token=9c5d2559-eace-44a7-96a7-e3fcaeb3e47b)
 
 ## 마치며
 
