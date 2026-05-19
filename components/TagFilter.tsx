@@ -101,7 +101,7 @@ export default function TagFilter({ posts }: { posts: Post[] }) {
         </h2>
 
         {filteredPosts.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredPosts.map((post) => (
               <PostCard key={post.metadata.slug} post={post} />
             ))}

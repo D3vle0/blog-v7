@@ -36,7 +36,7 @@ function CompactPostCard({ post }: { post: Post }) {
               {post.metadata.categories?.[0] || 'Uncategorized'}
             </span>
           </div>
-          <h3 className="font-bold text-base sm:text-lg leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-base sm:text-lg leading-snug line-clamp-2 min-h-[2.75em] mb-1 group-hover:text-primary transition-colors">
             {post.metadata.title}
           </h3>
           <div className="flex items-center justify-between text-xs sm:text-sm text-muted-foreground mt-auto pt-1">
