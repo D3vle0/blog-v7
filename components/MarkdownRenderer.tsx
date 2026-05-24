@@ -8,8 +8,8 @@ import rehypeSlug from "rehype-slug";
 import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import Zoom from "react-medium-image-zoom";
-import "react-medium-image-zoom/dist/styles.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import { Check, Copy, AlertTriangle, Info, Lightbulb, Flame } from "lucide-react";
 
 const ALERT_TYPES = {
@@ -96,8 +96,8 @@ function CustomBlockquote({ children, ...props }: any) {
             const type = (child as any).type;
             return (
               type === "img" ||
-              type === Zoom ||
-              (typeof type === "function" && (type.name === "Zoom" || type.displayName === "Zoom"))
+              type === PhotoView ||
+              (typeof type === "function" && (type.name === "PhotoView" || type.displayName === "PhotoView"))
             );
           });
 
@@ -218,8 +218,9 @@ function PreBlock({ children }: any) {
 
 export function MarkdownRenderer({ content }: { content: string }) {
   return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
+    <PhotoProvider maskOpacity={0.8}>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw, rehypeSlug]}
       components={{
         blockquote: CustomBlockquote,
@@ -236,8 +237,8 @@ export function MarkdownRenderer({ content }: { content: string }) {
             const type = (child as any).type;
             return (
               type === "img" ||
-              type === Zoom ||
-              (typeof type === "function" && (type.name === "Zoom" || type.displayName === "Zoom"))
+              type === PhotoView ||
+              (typeof type === "function" && (type.name === "PhotoView" || type.displayName === "PhotoView"))
             );
           });
 
@@ -269,23 +270,23 @@ export function MarkdownRenderer({ content }: { content: string }) {
 
           if (isInvalidForNextImage) {
             return (
-              <Zoom>
+              <PhotoView src={normalizedSrc}>
                 <img
                   {...rest}
                   src={normalizedSrc}
                   alt={alt ?? ""}
                   width={imageWidth}
                   height={imageHeight}
-                  className={mergedClassName}
+                  className={`${mergedClassName} cursor-zoom-in hover:opacity-90 transition-opacity`}
                   style={{ width: "100%", height: "auto" }}
                   loading="lazy"
                 />
-              </Zoom>
+              </PhotoView>
             );
           }
 
           return (
-            <Zoom>
+            <PhotoView src={normalizedSrc}>
               <Image
                 {...rest}
                 src={normalizedSrc}
@@ -293,11 +294,11 @@ export function MarkdownRenderer({ content }: { content: string }) {
                 width={imageWidth}
                 height={imageHeight}
                 sizes="(max-width: 768px) 100vw, 768px"
-                className={mergedClassName}
+                className={`${mergedClassName} cursor-zoom-in hover:opacity-90 transition-opacity`}
                 style={{ width: "100%", height: "auto" }}
                 loading="lazy"
               />
-            </Zoom>
+            </PhotoView>
           );
         },
         a({ href, children, ...props }: any) {
@@ -317,5 +318,6 @@ export function MarkdownRenderer({ content }: { content: string }) {
     >
       {content}
     </ReactMarkdown>
+    </PhotoProvider>
   );
 }
