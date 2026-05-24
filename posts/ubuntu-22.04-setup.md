@@ -1,11 +1,13 @@
 ---
 title: "Ubuntu 22.04 서버 세팅하기 🛠️"
 date: 2022-09-05T09:01:39+09:00
+lastmod: 2026-05-24T14:52:48+09:00
+cover:
+  image: images/posts/ubuntu-22.04-setup/1.jpg
+  caption: Ubuntu 22.04 서버 세팅하기
 draft: false
 categories: ["Server"]
 tags: ["ubuntu", "homeserver", "server"]
-# cover:
-#   image: images/posts/fastvpn/5.png
 ShowToc: true
 TocOpen: true
 ---

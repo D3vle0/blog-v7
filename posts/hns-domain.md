@@ -2,6 +2,10 @@
 title: "Handshake 도메인, 블록체인 도메인이란? (+내 도메인 역사)"
 date: 2022-01-30T13:17:52+09:00
 draft: false
+lastmod: 2026-05-24T14:44:20+09:00
+cover:
+  image: images/posts/hns-domain/1.jpg
+  alt: "Handshake 도메인, 블록체인 도메인이란? (+내 도메인 역사)"
 categories: ["Blockchain"]
 tags: ["hns", "handshake", "domain"]
 ShowToc: true

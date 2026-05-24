@@ -1,6 +1,10 @@
 ---
 title: "맥북에서 R Studio 설치 오류 해결 💡"
 date: 2025-06-18
+lastmod: 2026-05-24T14:56:34+09:00
+cover:
+  image: images/posts/fix-r-studio-error/1.png
+  caption: "맥북에서 R Studio 설치 오류 해결 💡"
 draft: false
 categories: ["macOS"]
 tags: ["macos", "rstudio", "r"]

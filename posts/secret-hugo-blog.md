@@ -1,7 +1,10 @@
 ---
 title: "딥 웹에 비밀 블로그 만드는 방법 (Hugo) 🔒"
 date: 2022-05-23
+lastmod: 2026-05-24
 draft: false
+cover:
+  image: images/posts/encrypt-hugo-page/1.jpg
 categories: ["Blog"]
 tags: ["tor", "hugo"]
 ShowToc: true

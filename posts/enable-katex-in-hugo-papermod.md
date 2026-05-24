@@ -1,6 +1,10 @@
 ---
 title: "hugo-papermod 테마에서 Katex 활성화하기 ✏️"
 date: 2025-02-10T17:53:00+09:00
+lastmod: 2026-05-24T14:54:45+09:00
+cover:
+  image: images/posts/enable-katex-in-hugo-papermod/1.png
+  caption: "hugo-papermod 테마에서 Katex 활성화하기 ✏️"
 draft: false
 categories: ["Blog"]
 tags: ["hugo", "katex"]

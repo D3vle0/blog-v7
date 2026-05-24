@@ -1,6 +1,10 @@
 ---
 title: "안드로이드의 역사 (학교 프로젝트 용)"
 date: 2022-03-25T22:03:21+09:00
+lastmod: 2026-05-24T14:46:13+09:00
+cover:
+  image: images/posts/history-of-android/1.png
+  alt: "안드로이드의 역사 (학교 프로젝트 용)"
 draft: false
 categories: ["Android"]
 ShowToc: true

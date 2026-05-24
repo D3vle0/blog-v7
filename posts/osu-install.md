@@ -1,7 +1,7 @@
 ---
 title: "M1 맥에 osu! 설치하기 🎮"
 date: 2022-05-19
-draft: false
+draft: true
 categories: ["macOS"]
 tags: ["osu!", "wine"]
 ShowToc: true
