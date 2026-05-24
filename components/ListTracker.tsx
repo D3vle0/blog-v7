@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export function ListTracker() {
+function ListTrackerInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -25,4 +25,12 @@ export function ListTracker() {
   }, [pathname, searchParams]);
 
   return null;
+}
+
+export function ListTracker() {
+  return (
+    <Suspense fallback={null}>
+      <ListTrackerInner />
+    </Suspense>
+  );
 }

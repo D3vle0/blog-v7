@@ -293,6 +293,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
                 alt={alt ?? ""}
                 width={imageWidth}
                 height={imageHeight}
+                unoptimized={normalizedSrc.includes(".svg") || normalizedSrc.includes("vercel.app")}
                 sizes="(max-width: 768px) 100vw, 768px"
                 className={`${mergedClassName} cursor-zoom-in hover:opacity-90 transition-opacity`}
                 style={{ width: "100%", height: "auto" }}
