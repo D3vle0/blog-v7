@@ -17,7 +17,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Devleo's Blog",
-  description: "A premium tech blog built with Next.js and Shadcn UI.",
+  description: "정보보안, AI, 블록체인, 프로그래밍을 공부하는 학생입니다.\n현재 U.S. 8th Army에서 KATUSA로 군복무 중입니다.",
+  openGraph: {
+    title: "Devleo's Blog",
+    description: "정보보안, AI, 블록체인, 프로그래밍을 공부하는 학생입니다.\n현재 U.S. 8th Army에서 KATUSA로 군복무 중입니다.",
+    url: "https://devleo.us",
+    siteName: "Devleo's Blog",
+    images: [
+      {
+        url: "/icon.jpg",
+        width: 800,
+        height: 800,
+      },
+    ],
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Devleo's Blog",
+    description: "정보보안, AI, 블록체인, 프로그래밍을 공부하는 학생입니다.\n현재 U.S. 8th Army에서 KATUSA로 군복무 중입니다.",
+    images: ["/icon.jpg"],
+  },
 };
 
 export default function RootLayout({
