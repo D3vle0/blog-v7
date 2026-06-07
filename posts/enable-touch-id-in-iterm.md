@@ -26,3 +26,5 @@ sudo -k && sudo -v
 ```
 
 를 입력해서 제대로 작동하는 지 테스트 한다.
+
+![2.png](images/posts/enable-touch-id-in-iterm/2.png)
