@@ -7,7 +7,7 @@ cover:
   caption: "나의 바이브코딩 변천사 📖"
 draft: false
 categories: ["Coding"]
-tags: ["opencode", "go", "oh-my-opencode-slim", "gemini", "deepseek", "qwen", "kimi", "minimax", "AI", "CLI"]
+tags: ["Copilot", "Cursor", "Antigravity", "OpenCode", "AI"]
 ShowToc: true
 TocOpen: true
 ---
