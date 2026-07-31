@@ -20,6 +20,7 @@ export function PostCard({ post }: { post: Post }) {
               sizes="(max-width: 640px) 100vw, 33vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
+              suppressHydrationWarning
             />
           </div>
         ) : (
