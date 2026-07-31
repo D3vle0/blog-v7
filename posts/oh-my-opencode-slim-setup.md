@@ -1,7 +1,6 @@
 ---
 title: "월 10달러로 AI 개발팀을 고용하는 방법: OpenCode Go + oh-my-opencode-slim"
-date: 2026-07-27T21:43:52+09:00
-lastmod: 2026-07-31T16:19:06+09:00
+date: 2026-07-31T16:25:49+09:00
 cover:
   image: images/posts/oh-my-opencode-slim-setup/1.png
   caption: "월 10달러로 AI 개발팀을 고용하는 방법: OpenCode Go + oh-my-opencode-slim"
